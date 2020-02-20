@@ -19,7 +19,12 @@ jobs:
       run: |
         yarn install
         yarn build
-        ls
+    - name: showFiles,
+      run: |
+        echo ${HOME}
+        ls ${HOME}
+        cd ${HOME}
+        ls ./
       env:
         CI: true
     - name: Deploy
