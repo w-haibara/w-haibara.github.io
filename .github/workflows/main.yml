@@ -21,10 +21,7 @@ jobs:
         yarn build
     - name: showFiles,
       run: |
-        echo ${HOME}
-        ls ${HOME}
-        cd ${HOME}
-        ls ./
+        ls '.'
       env:
         CI: true
     - name: Deploy
