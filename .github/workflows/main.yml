@@ -21,9 +21,9 @@ jobs:
         yarn build
     - name: showFiles,
       run: |
-        echo "" > index.html
-        pwd >> index.html
-        ls >> index.html
+        rm -rf README.md babel.config.js index.html node_modules package.json public src vue.config.js yarn.lock
+        mv ./dist/* .
+        rmdir ./dist/
       env:
         CI: true
     - name: Deploy
