@@ -19,6 +19,8 @@ jobs:
       run: |
         yarn install
         yarn build
+        mv ./src/dist/* .
+        rm -rf ./babel.config.js node_modules/ package.json public/ src/ vue.config.js yarn.lock
       env:
         CI: true
     - name: Deploy
