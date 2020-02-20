@@ -19,7 +19,7 @@ jobs:
       run: |
         yarn install
         yarn build
-    - name: showFiles,
+    - name: Put Files,
       run: |
         rm -rf README.md babel.config.js index.html node_modules package.json public src vue.config.js yarn.lock
         mv ./dist/* .
