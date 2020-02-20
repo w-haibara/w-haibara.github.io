@@ -5,7 +5,7 @@
       color="black"
       dark
     >
-      <v-toolbar-title>w_haibara</v-toolbar-title>
+      <v-toolbar-title>wataru haibara</v-toolbar-title>
     </v-app-bar>
 
     <router-view />
