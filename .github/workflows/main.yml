@@ -21,7 +21,6 @@ jobs:
         yarn build
     - name: Put Files,
       run: |
-        mv ./public/404.html .
         rm -rf README.md babel.config.js index.html node_modules package.json public src vue.config.js yarn.lock
         mv ./dist/* .
         rmdir ./dist/

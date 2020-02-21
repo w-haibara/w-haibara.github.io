@@ -4,6 +4,7 @@ import Home from '@/views/Home.vue'
 import Profile from '@/views/Profile.vue'
 import Works from '@/views/Works.vue'
 import Library from '@/views/Library/Library.vue'
+import NotFound from '@/views/NotFound.vue'
 
 Vue.use(VueRouter)
 
@@ -29,6 +30,11 @@ export default new VueRouter ({
       path: '/library',
       name: 'Library',
       component: Library
+    },
+    {
+      path: '*',
+      name: NotFound,
+      component: NotFound
     }
   ]
 })
