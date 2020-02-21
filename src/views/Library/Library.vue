@@ -14,7 +14,7 @@
 
         <v-container>
           <v-row>
-            <v-carousel height="360" show-arrows-on-hover="false">
+            <v-carousel height="360">
               <v-carousel-item v-for="(item,i) in items" :key="i">
                 <v-card class="mx-auto" max-width="480" height="299">
                   <iframe :src="item.src" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
