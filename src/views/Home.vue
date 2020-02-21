@@ -25,7 +25,7 @@
               <v-card
                 class="mx-auto"
                 color="grey lighten-4"
-                width="300"
+                width="280"
                 v-on:click="_goto(card.path, 0)"
               >
                 <v-img
