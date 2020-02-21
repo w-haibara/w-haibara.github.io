@@ -15,7 +15,7 @@
 
                 <v-container>
                     <v-row>
-                        <v-carousel cycle interval="10000" height="360" show-arrows-on-hover="false">
+                        <v-carousel cycle interval="10000" height="360">
                             <v-carousel-item v-for="(item,i) in items" :key="i">
                                 <v-card class="mx-auto" max-width="550" height="305">
                                     <v-img class="white--text" height="100px" :src="item.src"></v-img>
@@ -42,9 +42,6 @@
 
 <script>
   export default {
-    props: {
-      source: String,
-    },
     data: () => ({
       drawer: null,
       items: [

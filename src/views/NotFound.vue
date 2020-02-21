@@ -63,9 +63,11 @@
     }),
     methods: {
         _goto(path, selector) {
-        this.$router.push(path)
-        goTo(selector, 0)
-      },
+            this.$router.push(path)
+            if(selector != '0'){
+                goTo(selector, 0)
+            }
+        },
     },
   }
 </script>

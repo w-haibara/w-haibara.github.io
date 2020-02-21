@@ -12,7 +12,7 @@
             
             <v-container>
                 <v-container>
-                    <v-row :align="alignment" :justify="justify" class="white lighten-4">
+                    <v-row class="white lighten-4">
                             <v-col>
                                 <h1 class="pagetitle font-weight-bold">
                                     Wataru HAIBARA
@@ -98,9 +98,6 @@
 
 <script>
   export default {
-    props: {
-      source: String,
-    },
     data: () => ({
       drawer: null,
       dialog1: false,

@@ -120,7 +120,9 @@
       },
       _goto(path, selector) {
         this.$router.push(path)
-        goTo(selector, 0)
+        if(selector != '0'){
+          goTo(selector, 0)
+        }
       },
     },
   }

@@ -65,8 +65,13 @@
         window.open(url, '_blank')
       },
       _goto(path, selector) {
-        this.$router.push(path)
-        goTo(selector, 0)
+        this.$router.push(path).catch(
+          e => // eslint-disable-line
+          {
+          })
+        if(selector != '0'){
+          goTo(selector, 0)
+        }
       },
     },
   }
