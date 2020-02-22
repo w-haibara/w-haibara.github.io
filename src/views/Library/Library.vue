@@ -36,6 +36,9 @@
     data: () => ({
       items: [
         {
+          src: "https://docs.google.com/presentation/d/e/2PACX-1vRPPGZz4zBfKcz1dMu4pnATGQh2ZYXRUJIL7QKuvgxygGB0ZJIBMSJ5elCOya-tasHictLT7brYrDk4/embed?start=false&loop=false&delayms=3000" 
+        }
+        {
           src: "https://docs.google.com/presentation/d/e/2PACX-1vQAO0BBiAk8wFS1kSwg2zXbc0G_9E0QNgpdgBOSQmMXhVwBtUwt8jVxitXEl6RvXxEts-T-Bg_vb-wA/embed?start=false&loop=false&delayms=3000",
         },
         {
