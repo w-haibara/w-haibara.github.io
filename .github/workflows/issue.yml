@@ -5,7 +5,7 @@ on:
     types: opened
 
 jobs:
-  get issue comments:
+  get_issue_comments:
     runs-on: ubuntu-latest
     steps:
     - name: get opend issue info
