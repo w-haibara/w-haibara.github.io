@@ -16,3 +16,5 @@ jobs:
         echo "sender: ${{ github.event.sender.login}}"
         echo "title: ${{ github.event.issue.title}}"
         echo "url: ${{ github.event.comment.html_url }}"
+        echo "body: ${{ github.event.issue.body }}"
+        echo "comments: ${{ github.event.issue.comments }}"
