@@ -17,6 +17,6 @@ jobs:
         ISSUE_TITLE: ${{ github.event.issue.title}}
         ISSUE_URL: ${{ github.event.comment.html_url }}
       run: |
-        echo "sender: ${ISSUE_SENDER}"
-        echo "title: ${ISSUE_TITLE}"
-        echo "url: ${ISSUE_LINK}"
+        echo "sender: "${ISSUE_SENDER}
+        echo "title: "${ISSUE_TITLE}
+        echo "url: "${ISSUE_LINK}
