@@ -5,7 +5,7 @@
 
     <v-row>
 
-    <svg id="game" :width=vb_width :height=vb_height>
+    <svg id="ball" :width=vb_width :height=vb_height>
       <rect id="game_vb" x="0" y="0" :width=vb_width :height=vb_height fill="white" stroke="black" stroke-width="2" ></rect>
       
       <circle :cx=ball_x :cy=ball_y :r=ball_r></circle>
@@ -25,28 +25,26 @@
   import { showMouseVals } from './mouse'
   
   export default {
-     data: function(){
-      return {
-        intervalId: undefined,
-        vb_width: "600",
-        vb_height: "400",
-        ball_x: 30,
-        ball_y: 30,
-        ball_r: 20,
-        ball_x_dir: true,
-        ball_y_dir: true,
-        player_widht: 100,
-        player_height: 10,
-        player_x: 0,
-        player_y: 0,
-      }
-    },
+     data: () => ({
+      intervalId: undefined,
+      vb_width: "600",
+      vb_height: "400",
+      ball_x: 30,
+      ball_y: 30,
+      ball_r: 20,
+      ball_x_dir: true,
+      ball_y_dir: true,
+      player_widht: 100,
+      player_height: 10,
+      player_x: 0,
+      player_y: 0,
+    }),
     mounted () {
       
       this.intervalId = setInterval(function () {
         this.moveBall(1, 2)
-        this.player_x = showMouseVals().x - this.player_widht/2
-        this.player_y = showMouseVals().y - this.player_height/2
+        this.player_x = showMouseVals("game_vb").x - this.player_widht/2
+        this.player_y = showMouseVals("game_vb").y - this.player_height/2
       }.bind(this), 10)
     },
     beforeDestroy () {
