@@ -9,9 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: get opend issue info
-      if: github.event_name == 'issues' && github.event.action == 'opend'
+      if: github.event_name == 'issues' && github.event.action == 'opened'
       run: |
         echo "sender: ${{ github.event.sender.login}}"
         echo "title: ${{ github.event.issue.title}}"
-        echo "url: ${{ github.event.comment.html_url }}"
+        echo "url: ${{ github.event.issue.html_url }}"
         echo "body: ${{ github.event.issue.body }}"
