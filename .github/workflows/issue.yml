@@ -1,0 +1,22 @@
+name: get issue comment
+
+on:
+  issues:
+    types: opened
+  issue_comment:
+    types: created
+
+jobs:
+  notify_line:
+    runs-on: ubuntu-latest
+    steps:
+    - name: get issue comment info
+      if: github.event_name == 'issue_comment' && github.event.action == 'created'
+      env:
+        ISSUE_SNEDER: ${{ github.event.sender.login}}
+        ISSUE_TITLE: ${{ github.event.issue.title}}
+        ISSUE_URL: ${{ github.event.comment.html_url }}
+      run: |
+        echo "sender: ${ISSUE_SENDER}"
+        echo "title: ${ISSUE_TITLE}"
+        echo "url: ${ISSUE_LINK}"
