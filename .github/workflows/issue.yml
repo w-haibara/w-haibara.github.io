@@ -3,18 +3,15 @@ name: get issue comment
 on:
   issues:
     types: opened
-  issue_comment:
-    types: created
 
 jobs:
-  notify_line:
+  get issue comments:
     runs-on: ubuntu-latest
     steps:
-    - name: get issue comment info
-      if: github.event_name == 'issue_comment' && github.event.action == 'created'
+    - name: get opend issue info
+      if: github.event_name == 'issues' && github.event.action == 'opend'
       run: |
         echo "sender: ${{ github.event.sender.login}}"
         echo "title: ${{ github.event.issue.title}}"
         echo "url: ${{ github.event.comment.html_url }}"
         echo "body: ${{ github.event.issue.body }}"
-        echo "comments: ${{ github.event.issue.comments.* }}"
