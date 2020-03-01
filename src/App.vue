@@ -1,12 +1,12 @@
 <template>
   <v-app id="app">
-    <v-app-bar app color="black" dark>
-      <v-toolbar-title>Wataru HAIBARA</v-toolbar-title>
+    <v-app-bar app color="black" dark height="33">
+      <v-toolbar-title>w_haibara</v-toolbar-title>
     </v-app-bar>
 
     <router-view />
 
-    <v-footer color="black" app class="font-weight-medium" title>
+    <v-footer color="black" app class="font-weight-medium" title height="34">
       <v-row>
         <v-btn text color="white" v-on:click="_goto('/', '0')">
           <span class="white--text">Home</span>

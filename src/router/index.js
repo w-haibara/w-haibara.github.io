@@ -6,6 +6,7 @@ import Works from '@/views/Works.vue'
 import Library from '@/views/Library/Library.vue'
 import Ball from '@/views/playground/Ball.vue'
 import Picsel from '@/views/playground/Picsel.vue'
+import td4 from '@/views/playground/td4.vue'
 import NotFound from '@/views/NotFound.vue'
 
 Vue.use(VueRouter)
@@ -42,6 +43,11 @@ export default new VueRouter ({
       path: '/ball',
       name: 'Ball',
       component: Ball
+    },
+    {
+      path: '/td4',
+      name: 'td4',
+      component: td4
     },
     {
       path: '*',

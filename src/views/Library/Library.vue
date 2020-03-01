@@ -1,5 +1,5 @@
 <template>
-  <v-app id="inspire">
+  <v-app id="app">
     <v-content>
       <v-col>
         <v-img class="brack--text" height="90px" src="../../assets/slide5.png">
@@ -40,21 +40,30 @@ export default {
     items: [
       {
         src:
-          "https://docs.google.com/presentation/d/e/2PACX-1vRPPGZz4zBfKcz1dMu4pnATGQh2ZYXRUJIL7QKuvgxygGB0ZJIBMSJ5elCOya-tasHictLT7brYrDk4/embed?start=false&loop=false&delayms=3000"
+          "https://docs.google.com/presentation/d/e/2PACX-1vRPPGZz4zBfKcz1dMu4pnATGQh2ZYXRUJIL7QKuvgxygGB0ZJIBMSJ5elCOya-tasHictLT7brYrDk4/embed?start=false&loop=false&delayms=3000",
+        loaded: false
       },
       {
         src:
-          "https://docs.google.com/presentation/d/e/2PACX-1vQAO0BBiAk8wFS1kSwg2zXbc0G_9E0QNgpdgBOSQmMXhVwBtUwt8jVxitXEl6RvXxEts-T-Bg_vb-wA/embed?start=false&loop=false&delayms=3000"
+          "https://docs.google.com/presentation/d/e/2PACX-1vQAO0BBiAk8wFS1kSwg2zXbc0G_9E0QNgpdgBOSQmMXhVwBtUwt8jVxitXEl6RvXxEts-T-Bg_vb-wA/embed?start=false&loop=false&delayms=3000",
+        loaded: false
       },
       {
         src:
-          "https://docs.google.com/presentation/d/e/2PACX-1vQRCrDQD_Vy8-V63iL7owU4YayRBzZvz472usc47SFnbLYaWvxVR6n2Hea3SJ7MrAoCm1lGjUIsPSIc/embed?start=false&loop=false&delayms=3000"
+          "https://docs.google.com/presentation/d/e/2PACX-1vQRCrDQD_Vy8-V63iL7owU4YayRBzZvz472usc47SFnbLYaWvxVR6n2Hea3SJ7MrAoCm1lGjUIsPSIc/embed?start=false&loop=false&delayms=3000",
+        loaded: false
       },
       {
         src:
-          "https://docs.google.com/presentation/d/e/2PACX-1vQjR0Gb67JgXhzVgnXlpiiH2oF4T0s1mvr658_2gX2wyV4VI6cDVBKhzOH6GH6DNR91OPUNtRSScOTq/embed?start=false&loop=false&delayms=3000"
+          "https://docs.google.com/presentation/d/e/2PACX-1vQjR0Gb67JgXhzVgnXlpiiH2oF4T0s1mvr658_2gX2wyV4VI6cDVBKhzOH6GH6DNR91OPUNtRSScOTq/embed?start=false&loop=false&delayms=3000",
+        loaded: false
       }
     ]
-  })
+  }),
+  method: {
+    loaded() {
+      alert("loaded");
+    }
+  }
 };
 </script>
