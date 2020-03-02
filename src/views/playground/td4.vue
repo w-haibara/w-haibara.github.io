@@ -21,7 +21,7 @@
               <h4>Metrics</h4>
               <v-col>
                 <v-row justify="space-around" class="mb-2">
-                  <font size="3">Program Counter: {{ toBin(programCounter) }}</font>
+                  <font size="3">Program Counter: {{ toBin(displayedProgramCounter) }}</font>
                 </v-row>
                 <v-row justify="space-around" class="mb-2">
                   <font size="3">C Flag: {{ toBin(CFlag, 1) }}</font>
@@ -146,11 +146,7 @@
                     :color="instruction.color"
                     width="12%"
                   >
-                    <v-text-field
-                      v-model="instruction.val"
-                      v-mask="mask"
-                      :label="toBin(instruction.addr)"
-                    ></v-text-field>
+                    <v-text-field v-model="instruction.val" :label="toBin(instruction.addr)"></v-text-field>
                   </v-card>
                 </v-row>
               </font>
@@ -239,97 +235,97 @@ export default {
         addr: 0,
         color: "white",
         state: true,
-        val: "00000000"
+        val: "0000-0000"
       },
       {
         addr: 1,
         color: "white",
         state: false,
-        val: "00000000"
+        val: "0000-0000"
       },
       {
         addr: 2,
         color: "white",
         state: false,
-        val: "00000000"
+        val: "0000-0000"
       },
       {
         addr: 3,
         color: "white",
         state: false,
-        val: "00000000"
+        val: "0000-0000"
       },
       {
         addr: 4,
         color: "white",
         state: false,
-        val: "00000000"
+        val: "0000-0000"
       },
       {
         addr: 5,
         color: "white",
         state: false,
-        val: "00000000"
+        val: "0000-0000"
       },
       {
         addr: 6,
         color: "white",
         state: false,
-        val: "00000000"
+        val: "0000-0000"
       },
       {
         addr: 7,
         color: "white",
         state: false,
-        val: "00000000"
+        val: "0000-0000"
       },
       {
         addr: 8,
         color: "white",
         state: false,
-        val: "00000000"
+        val: "0000-0000"
       },
       {
         addr: 9,
         color: "white",
         state: false,
-        val: "00000000"
+        val: "0000-0000"
       },
       {
         addr: 10,
         color: "white",
         state: false,
-        val: "00000000"
+        val: "0000-0000"
       },
       {
         addr: 11,
         color: "white",
         state: false,
-        val: "00000000"
+        val: "0000-0000"
       },
       {
         addr: 12,
         color: "white",
         state: false,
-        val: "00000000"
+        val: "0000-0000"
       },
       {
         addr: 13,
         color: "white",
         state: false,
-        val: "00000000"
+        val: "0000-0000"
       },
       {
         addr: 14,
         color: "white",
         state: false,
-        val: "00000000"
+        val: "0000-0000"
       },
       {
         addr: 15,
         color: "white",
         state: false,
-        val: "00000000"
+        val: "0000-0000"
       }
     ],
     opcode: "0000",
@@ -338,76 +334,108 @@ export default {
       {
         name: "--",
         array: [
-          "00000000",
-          "00000000",
-          "00000000",
-          "00000000",
-          "00000000",
-          "00000000",
-          "00000000",
-          "00000000",
-          "00000000",
-          "00000000",
-          "00000000",
-          "00000000",
-          "00000000",
-          "00000000",
-          "00000000",
-          "00000000"
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000"
         ]
       },
       {
         name: "brink",
         array: [
-          "10110000",
-          "10110001",
-          "10110010",
-          "10110011",
-          "10110100",
-          "10110101",
-          "10110110",
-          "10110111",
-          "10111000",
-          "10111001",
-          "10111010",
-          "10111011",
-          "10111100",
-          "10111101",
-          "10111110",
-          "10111111"
+          "1011-0000",
+          "1011-0001",
+          "1011-0010",
+          "1011-0011",
+          "1011-0100",
+          "1011-0101",
+          "1011-0110",
+          "1011-0111",
+          "1011-1000",
+          "1011-1001",
+          "1011-1010",
+          "1011-1011",
+          "1011-1100",
+          "1011-1101",
+          "1011-1110",
+          "1011-1111"
+        ]
+      },
+      {
+        name: "loop",
+        array: [
+          "1111-0010",
+          "0000-0000",
+          "1111-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000"
         ]
       }
     ],
-    innnerSelectedProgram: {
+    innerSelectedProgram: {
       name: "--",
       array: [
-        "00000000",
-        "00000000",
-        "00000000",
-        "00000000",
-        "00000000",
-        "00000000",
-        "00000000",
-        "00000000",
-        "00000000",
-        "00000000",
-        "00000000",
-        "00000000",
-        "00000000",
-        "00000000",
-        "00000000",
-        "00000000"
+        "0000-0000",
+        "0000-0000",
+        "0000-0000",
+        "0000-0000",
+        "0000-0000",
+        "0000-0000",
+        "0000-0000",
+        "0000-0000",
+        "0000-0000",
+        "0000-0000",
+        "0000-0000",
+        "0000-0000",
+        "0000-0000",
+        "0000-0000",
+        "0000-0000",
+        "0000-0000"
       ]
-    }
+    },
+    isJmp: false
   }),
   computed: {
+    displayedProgramCounter: {
+      get() {
+        return this.isJmp
+          ? this.programCounter == 15
+            ? 0
+            : this.programCounter + 1
+          : this.programCounter;
+      }
+    },
     selectedProgram: {
       get() {
-        return this.innnerSelectedProgram;
+        return this.innerSelectedProgram;
       },
       set(value) {
         this.setProgram(value.array);
-        this.innnerSelectedProgram = value;
+        this.innerSelectedProgram = value;
+        this.reset();
       }
     }
   },
@@ -480,6 +508,13 @@ export default {
       this.CFlag = 0;
     },
     JMP_Im() {
+      this.instructions[this.programCounter].color = "white";
+      if (this.isPowerOn) {
+        this.instructions[parseInt(this.imdata, 2)].color = "cyan lighten-1";
+      }
+      this.programCounter =
+        parseInt(this.imdata, 2) == 0 ? 15 : parseInt(this.imdata, 2) - 1;
+      this.isJmp = true;
       this.CFlag = 0;
     },
     JNC_Im() {
@@ -495,19 +530,15 @@ export default {
       if (this.isPowerOn) {
         this.setProgramCounter();
       } else {
-        this.reset();
         clearInterval(this.intervalId);
+        this.instructions[this.displayedProgramCounter].color = "white";
       }
     },
     reset() {
       this.registerA = "0000";
       this.registerB = "0000";
       this.CFlag = 0;
-      this.opcode = "0000";
-      this.imdata = "0000";
 
-      this.frequency = 1;
-      this.manualFreq = 1;
       this.isManualFreqMode = false;
 
       this.setInp(0, false);
@@ -520,12 +551,9 @@ export default {
       this.setOutp(2, false);
       this.setOutp(3, false);
 
-      this.instructions[this.programCounter].color = "white";
-      if (this.isPowerOn) {
-        this.instructions[0].color = "cyan lighten-1";
-      }
-
-      this.programCounter = 15;
+      this.opcode = "0000";
+      this.imdata = "0000";
+      this.JMP_Im();
     },
     toBin(n, len) {
       if (len == undefined) len = 4;
@@ -550,9 +578,7 @@ export default {
       if (this.isPowerOn) {
         this.intervalId = setInterval(
           function() {
-            this.programCounter =
-              this.programCounter >= 15 ? 0 : this.programCounter + 1;
-            this.setNextOpecode();
+            this.setNextOpecode(this.programCounter);
           }.bind(this),
           1000 / this.frequency
         );
@@ -573,16 +599,21 @@ export default {
       this.setProgramCounter();
     },
     setNextOpecode() {
+      this.instructions[this.programCounter].color = "white";
+
+      this.programCounter =
+        this.programCounter >= 15 ? 0 : this.programCounter + 1;
+
       if (this.isPowerOn) {
         this.instructions[this.programCounter].color = "cyan lighten-1";
       }
-      this.instructions[
-        this.programCounter == 0 ? 15 : this.programCounter - 1
-      ].color = "white";
 
+      console.log(this.programCounter);
       this.readInstruction(this.programCounter);
     },
     readInstruction(programCounter) {
+      this.isJmp = false;
+
       [this.opcode, this.imdata] = this.instructions[programCounter].val.split(
         "-"
       );
@@ -634,9 +665,12 @@ export default {
         );
         return;
       }
+
       for (var i = 0; i < 16; i++) {
         this.instructions[i].val = instructionArray[i];
       }
+
+      this.mask = "####-####";
     }
   },
   created() {},
