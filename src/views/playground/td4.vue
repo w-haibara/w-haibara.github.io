@@ -21,7 +21,7 @@
               <h4>Metrics</h4>
               <v-col>
                 <v-row justify="space-around" class="mb-2">
-                  <font size="3">Program Counter: {{ toBin(displayedProgramCounter) }}</font>
+                  <font size="3">Program Counter: {{ toBin(preJumpedProgramCounter) }}</font>
                 </v-row>
                 <v-row justify="space-around" class="mb-2">
                   <font size="3">C Flag: {{ toBin(CFlag, 1) }}</font>
@@ -70,13 +70,7 @@
                 <v-row>
                   <v-col>
                     <v-row justify="space-around" class="mb-2">
-                      <v-btn
-                        icon
-                        v-for="inp in inps"
-                        :key="inp.num"
-                        @click="setInp(inp.num)"
-                        :disabled="!isPowerOn"
-                      >
+                      <v-btn icon v-for="inp in inps" :key="inp.num" @click="setInp(inp.num)">
                         <v-avatar
                           class="white--text headline"
                           :color="inp.color"
@@ -378,9 +372,51 @@ export default {
         array: [
           "1111-0010",
           "0000-0000",
+          "1111-1111",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000"
+        ]
+      },
+      {
+        name: "add",
+        array: [
+          "0000-0001",
           "1111-0000",
           "0000-0000",
           "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000",
+          "0000-0000"
+        ]
+      },
+      {
+        name: "io",
+        array: [
+          "1011-0000",
+          "0010-0000",
+          "0100-0000",
+          "1001-0000",
+          "1111-0000",
           "0000-0000",
           "0000-0000",
           "0000-0000",
@@ -416,18 +452,10 @@ export default {
         "0000-0000"
       ]
     },
-    isJmp: false
+    isJmp: false,
+    preJumpedProgramCounter: 0
   }),
   computed: {
-    displayedProgramCounter: {
-      get() {
-        return this.isJmp
-          ? this.programCounter == 15
-            ? 0
-            : this.programCounter + 1
-          : this.programCounter;
-      }
-    },
     selectedProgram: {
       get() {
         return this.innerSelectedProgram;
@@ -442,8 +470,13 @@ export default {
   methods: {
     addBin(binA, binB) {
       var ans = parseInt(binA, 2) + parseInt(binB, 2);
-      this.CFlag = ans >= 16;
-      if (this.CFlag) ans = ans - 16;
+      if (ans >= 16) {
+        this.CFlag = 1;
+        ans = ans - 16;
+      } else {
+        this.CFlag = 0;
+      }
+
       console.log(
         "binA: " +
           binA +
@@ -457,11 +490,11 @@ export default {
       return ans.toString(2).padStart(4, "0");
     },
     imp2bin() {
-      var ans = this.imps[3].state ? 8 : 0;
-      ans += this.imps[2].state ? 4 : 0;
-      ans += this.imps[1].state ? 2 : 0;
-      ans += this.imps[0].state ? 1 : 0;
-      return ans.toString(2);
+      var ans = this.inps[3].state ? 1 : 0;
+      ans += this.inps[2].state ? 2 : 0;
+      ans += this.inps[1].state ? 4 : 0;
+      ans += this.inps[0].state ? 8 : 0;
+      return ans.toString(2).padStart(4, "0");
     },
     bin2outp(bin) {
       this.setOutp(3, bin[3] == 1);
@@ -492,36 +525,40 @@ export default {
       this.registerB = this.addBin(this.registerB, this.imdata);
     },
     IN_A() {
+      console.log("IN_A: " + this.imp2bin());
       this.registerA = this.imp2bin();
       this.CFlag = 0;
     },
     IN_B() {
+      console.log("IN_B: " + this.imp2bin());
       this.registerA = this.imp2bin();
       this.CFlag = 0;
     },
     OUT_Im() {
+      console.log("OUT_Im: " + this.imdata);
       this.bin2outp(this.imdata);
       this.CFlag = 0;
     },
     OUT_B() {
+      console.log("OUT_B: " + this.registerB);
       this.bin2outp(this.registerB);
       this.CFlag = 0;
     },
     JMP_Im() {
-      this.instructions[this.programCounter].color = "white";
-      if (this.isPowerOn) {
-        this.instructions[parseInt(this.imdata, 2)].color = "cyan lighten-1";
-      }
-      this.programCounter =
-        parseInt(this.imdata, 2) == 0 ? 15 : parseInt(this.imdata, 2) - 1;
+      console.log("JMP_im: " + this.imdata);
+      this.preJumpedProgramCounter = this.programCounter;
+      this.programCounter = parseInt(this.imdata, 2);
       this.isJmp = true;
       this.CFlag = 0;
     },
     JNC_Im() {
-      if (this.CFlag == 1) {
-        this.JMP_Im();
-      } else if (this.CFlag != 0) {
-        console.error("value of C Flag is invalid");
+      console.log("JNC_Im: " + this.imdata);
+      if (this.CFlag != 1) {
+        if (this.CFlag == 0) {
+          this.JMP_Im();
+        } else {
+          console.error("value of C Flag is invalid");
+        }
       }
       this.CFlag = 0;
     },
@@ -531,7 +568,7 @@ export default {
         this.setProgramCounter();
       } else {
         clearInterval(this.intervalId);
-        this.instructions[this.displayedProgramCounter].color = "white";
+        this.instructions[this.preJumpedProgramCounter].color = "white";
       }
     },
     reset() {
@@ -541,11 +578,6 @@ export default {
 
       this.isManualFreqMode = false;
 
-      this.setInp(0, false);
-      this.setInp(1, false);
-      this.setInp(2, false);
-      this.setInp(3, false);
-
       this.setOutp(0, false);
       this.setOutp(1, false);
       this.setOutp(2, false);
@@ -553,7 +585,8 @@ export default {
 
       this.opcode = "0000";
       this.imdata = "0000";
-      this.JMP_Im();
+
+      this.programCounter = 0;
     },
     toBin(n, len) {
       if (len == undefined) len = 4;
@@ -575,14 +608,14 @@ export default {
         : "blue-grey darken-1";
     },
     setProgramCounter() {
-      if (this.isPowerOn) {
-        this.intervalId = setInterval(
-          function() {
-            this.setNextOpecode(this.programCounter);
-          }.bind(this),
-          1000 / this.frequency
-        );
-      }
+      this.intervalId = setInterval(
+        function() {
+          console.log("[pc: " + this.programCounter + "]------------------");
+          this.setNextOpecode(this.programCounter);
+          console.log("------------------");
+        }.bind(this),
+        1000 / this.frequency
+      );
     },
     setFrequency(frequency) {
       if (this.intervalId != undefined) clearInterval(this.intervalId);
@@ -599,24 +632,23 @@ export default {
       this.setProgramCounter();
     },
     setNextOpecode() {
-      this.instructions[this.programCounter].color = "white";
+      this.instructions[this.preJumpedProgramCounter].color = "white";
+      this.instructions[this.programCounter].color = "cyan lighten-1";
 
-      this.programCounter =
-        this.programCounter >= 15 ? 0 : this.programCounter + 1;
+      this.readInstruction();
 
-      if (this.isPowerOn) {
-        this.instructions[this.programCounter].color = "cyan lighten-1";
+      if (!this.isJmp) {
+        this.preJumpedProgramCounter = this.programCounter;
+        this.programCounter =
+          this.programCounter >= 15 ? 0 : this.programCounter + 1;
+      } else {
+        this.isJmp = false;
       }
-
-      console.log(this.programCounter);
-      this.readInstruction(this.programCounter);
     },
-    readInstruction(programCounter) {
-      this.isJmp = false;
-
-      [this.opcode, this.imdata] = this.instructions[programCounter].val.split(
-        "-"
-      );
+    readInstruction() {
+      [this.opcode, this.imdata] = this.instructions[
+        this.programCounter
+      ].val.split("-");
       switch (this.opcode) {
         case "0011":
           this.MOV_A_Im();
