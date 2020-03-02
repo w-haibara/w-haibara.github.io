@@ -35,16 +35,25 @@
                   <font size="3">Register A: {{ toBin(registerA) }}</font>
                   <font size="3">Register B: {{ toBin(registerB) }}</font>
                 </v-row>
-                <v-select
-                  v-model="selectedProgram"
-                  :items="programs"
-                  item-text="name"
-                  item-value="arry"
-                  label="LOAD"
-                  dense
-                  return-object
-                  single-line
-                ></v-select>
+                <div id="title">
+                  <ul>
+                    <div>
+                      <font size="3">Loaded program</font>
+                    </div>
+                    <div>
+                      <v-select
+                        v-model="selectedProgram"
+                        :items="programs"
+                        item-text="name"
+                        item-value="arry"
+                        label="LOAD"
+                        dense
+                        return-object
+                        single-line
+                      ></v-select>
+                    </div>
+                  </ul>
+                </div>
               </v-col>
             </v-col>
           </v-card>
@@ -88,42 +97,44 @@
               <h4>Clock Generator</h4>
               <v-col>
                 <v-row justify="space-around" class="mb-1">
-                  <v-btn :disabled="isManualFreqMode" v-on:click="setFrequency(1)">
-                    <font size="2">1 Hz</font>
-                  </v-btn>
-                  <v-btn :disabled="isManualFreqMode" v-on:click="setFrequency(5)">
-                    <font size="2">5 Hz</font>
-                  </v-btn>
-                  <v-btn :disabled="isManualFreqMode" v-on:click="setFrequency(10)">
-                    <font size="2">10 Hz</font>
-                  </v-btn>
-                </v-row>
-                <v-row justify="space-around" class="mb-1">
-                  <v-btn :disabled="isManualFreqMode" v-on:click="setFrequency(0)">
+                  <v-btn v-on:click="clickStop" :outlined="isStoped">
                     <font size="2">STOP</font>
                   </v-btn>
                   <v-btn v-on:click="reset()">
                     <font size="2">RESET</font>
                   </v-btn>
                 </v-row>
-                <v-col>
-                  <v-switch
-                    v-model="isManualFreqMode"
-                    label="Manual Frequency"
-                    v-on:change="setFrequency(manualFreq)"
-                  ></v-switch>
-                  <v-slider
-                    v-model="manualFreq"
-                    :disabled="!isManualFreqMode"
-                    class="align-center"
-                    :max="freqMax"
-                    :min="freqMin"
-                    hide-details
-                    :thumb-size="24"
-                    thumb-label="always"
-                    v-on:change="setFrequency(manualFreq)"
-                  ></v-slider>
-                </v-col>
+                <v-row justify="space-around" class="mb-1">
+                  <v-radio-group v-model="radioSelectedFreq" row>
+                    <v-radio label="1 Hz" value="1" dense></v-radio>
+                    <v-radio label="5 Hz" value="5"></v-radio>
+                    <v-radio label="10 Hz" value="10"></v-radio>
+                  </v-radio-group>
+                </v-row>
+                <div id="manualFreq">
+                  <ul>
+                    <div>
+                      <v-switch
+                        v-model="isManualFreqMode"
+                        label="Manual Frequency"
+                        v-on:change="setFrequency(manualFreq)"
+                      ></v-switch>
+                    </div>
+                    <div>
+                      <v-slider
+                        v-model="manualFreq"
+                        :disabled="!isManualFreqMode"
+                        class="align-center"
+                        :max="freqMax"
+                        :min="freqMin"
+                        hide-details
+                        :thumb-size="24"
+                        thumb-label="always"
+                        v-on:change="setFrequency(manualFreq)"
+                      ></v-slider>
+                    </div>
+                  </ul>
+                </div>
               </v-col>
             </v-col>
           </v-card>
@@ -153,12 +164,7 @@
 </template>
 
 <script>
-import { mask } from "vue-the-mask";
-
 export default {
-  directives: {
-    mask
-  },
   data: () => ({
     intervalId: undefined,
     isPowerOn: false,
@@ -179,6 +185,7 @@ export default {
     freqMin: 0,
     manualFreq: 1,
     isManualFreqMode: false,
+    isStoped: false,
     outps: [
       {
         num: 0,
@@ -223,7 +230,6 @@ export default {
         state: false
       }
     ],
-    mask: "####-####",
     instructions: [
       {
         addr: 0,
@@ -465,6 +471,14 @@ export default {
         this.innerSelectedProgram = value;
         this.reset();
       }
+    },
+    radioSelectedFreq: {
+      get() {
+        return 0;
+      },
+      set(value) {
+        this.setFrequency(value);
+      }
     }
   },
   methods: {
@@ -568,7 +582,9 @@ export default {
         this.setProgramCounter();
       } else {
         clearInterval(this.intervalId);
-        this.instructions[this.preJumpedProgramCounter].color = "white";
+        for (var i = 0; i < 16; i++) {
+          this.instructions[i].color = "white";
+        }
       }
     },
     reset() {
@@ -587,6 +603,15 @@ export default {
       this.imdata = "0000";
 
       this.programCounter = 0;
+      this.instructions[this.preJumpedProgramCounter].color = "white";
+      if (this.isPowerOn) {
+        this.instructions[this.programCounter].color = "cyan lighten-1";
+      }
+    },
+    clickStop() {
+      console.log("stoped");
+      this.isStoped = !this.isStoped;
+      this.setFrequency(this.frequency);
     },
     toBin(n, len) {
       if (len == undefined) len = 4;
@@ -611,6 +636,7 @@ export default {
       this.intervalId = setInterval(
         function() {
           console.log("[pc: " + this.programCounter + "]------------------");
+          console.log("isStoped: " + this.isStoped);
           this.setNextOpecode(this.programCounter);
           console.log("------------------");
         }.bind(this),
@@ -620,10 +646,11 @@ export default {
     setFrequency(frequency) {
       if (this.intervalId != undefined) clearInterval(this.intervalId);
       this.frequency = frequency;
-      if (frequency != 0) {
-        this.setProgramCounter();
-      } else {
+      if (frequency == 0 || this.isStoped) {
         this.intervalId = undefined;
+        return;
+      } else {
+        this.setProgramCounter();
       }
     },
     setManualFrequency(frequency) {
@@ -721,6 +748,11 @@ export default {
 #title ul div {
   display: inline-block;
   width: 150px;
+  vertical-align: center;
+}
+#manualFreq ul div {
+  display: inline-block;
+  width: 140px;
   vertical-align: center;
 }
 </style>>
