@@ -4,6 +4,7 @@ import Home from '@/views/Home.vue'
 import Profile from '@/views/Profile.vue'
 import Works from '@/views/Works.vue'
 import Library from '@/views/Library/Library.vue'
+import Article from '@/views/Library/article.vue'
 import Ball from '@/views/playground/Ball.vue'
 import Picsel from '@/views/playground/Picsel.vue'
 import td4 from '@/views/playground/td4.vue'
@@ -11,7 +12,7 @@ import NotFound from '@/views/NotFound.vue'
 
 Vue.use(VueRouter)
 
-export default new VueRouter ({
+export default new VueRouter({
   mode: 'hash',
   routes: [
     {
@@ -33,6 +34,16 @@ export default new VueRouter ({
       path: '/library',
       name: 'Library',
       component: Library
+    },
+    {
+      path: '/library',
+      name: 'Library',
+      component: Library
+    },
+    {
+      path: '/article/:id',
+      name: 'Article',
+      component: Article
     },
     {
       path: '/picsel',

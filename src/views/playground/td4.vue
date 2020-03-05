@@ -1,5 +1,5 @@
 <template>
-  <v-app id="#inspire">
+  <v-app id>
     <v-content>
       <v-row justify="space-around" no-gutters>
         <div id="title">

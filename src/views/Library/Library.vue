@@ -1,5 +1,5 @@
 <template>
-  <v-app id="app">
+  <v-app>
     <v-content>
       <v-col>
         <v-img class="brack--text" height="90px" src="../../assets/slide5.png">
@@ -9,6 +9,13 @@
         </v-img>
       </v-col>
 
+      <router-link :to="{name:'Article',params:{id:1}}">Read more</router-link>
+
+      <v-col>
+        <markdown v-for="(article,i) in articles" :key="i" :mdName="article"></markdown>
+      </v-col>
+
+      <!--
       <v-container>
         <v-container>
           <v-row>
@@ -30,12 +37,19 @@
           </v-row>
         </v-container>
       </v-container>
+      -->
     </v-content>
   </v-app>
 </template>
 
 <script>
+import Markdown from "./markdown.vue";
+import Posts from "./posts/posts.json";
+
 export default {
+  components: {
+    Markdown
+  },
   data: () => ({
     items: [
       {
@@ -60,10 +74,13 @@ export default {
       }
     ]
   }),
-  method: {
-    loaded() {
-      alert("loaded");
+  computed: {
+    articles: {
+      get() {
+        return Posts.posts;
+      }
     }
-  }
+  },
+  method: {}
 };
 </script>

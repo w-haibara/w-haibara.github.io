@@ -1,5 +1,5 @@
 <template>
-  <v-app id="inspire">
+  <v-app id>
     <v-content>
       <v-col>
         <v-img class="black--text" height="90px" src="../assets/slide4.png">

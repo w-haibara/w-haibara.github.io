@@ -1,5 +1,5 @@
 <template>
-  <v-app id="#inspire">
+  <v-app id>
     <v-content>
       <v-container>
         <v-row>

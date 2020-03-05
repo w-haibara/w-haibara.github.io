@@ -1,30 +1,33 @@
 <template>
   <v-app id="app">
-    <v-app-bar app color="black" dark height="33">
-      <v-toolbar-title>w_haibara</v-toolbar-title>
+    <v-app-bar app color="black" dark height="40">
+      <v-toolbar-title>
+        <v-row>
+          <v-col>
+            <span>w_haibara Portfolio</span>
+          </v-col>
+          <v-col>
+            <v-btn text color="white" v-on:click="_goto('/', '0')">
+              <span class="white--text">Home</span>
+            </v-btn>
+
+            <v-btn text color="white" v-on:click="_goto('/profile', '0')">
+              <span class="white--text">Profile</span>
+            </v-btn>
+
+            <v-btn text color="white" v-on:click="_goto('/works', '0')">
+              <span class="white--text">Works</span>
+            </v-btn>
+
+            <v-btn text color="white" v-on:click="_goto('/library', '0')">
+              <span class="white--text">Library</span>
+            </v-btn>
+          </v-col>
+        </v-row>
+      </v-toolbar-title>
     </v-app-bar>
 
     <router-view />
-
-    <v-footer color="black" app class="font-weight-medium" title height="34">
-      <v-row>
-        <v-btn text color="white" v-on:click="_goto('/', '0')">
-          <span class="white--text">Home</span>
-        </v-btn>
-
-        <v-btn text color="white" v-on:click="_goto('/profile', '0')">
-          <span class="white--text">Profile</span>
-        </v-btn>
-
-        <v-btn text color="white" v-on:click="_goto('/works', '0')">
-          <span class="white--text">Works</span>
-        </v-btn>
-
-        <v-btn text color="white" v-on:click="_goto('/library', '0')">
-          <span class="white--text">Library</span>
-        </v-btn>
-      </v-row>
-    </v-footer>
   </v-app>
 </template>
 
@@ -66,3 +69,11 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+#title ul div {
+  display: inline-block;
+  margin: 10px;
+  vertical-align: center;
+}
+</style>
