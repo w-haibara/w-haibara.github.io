@@ -21,10 +21,7 @@ export default {
     articleName: {
       get() {
         var name = this.$route.path.split("/")[2];
-        if (Posts.posts.indexOf(name) < 0) {
-          name = undefined;
-        }
-        return name;
+        return Posts.posts.indexOf(name) < 0 ? undefined : name;
       }
     }
   },

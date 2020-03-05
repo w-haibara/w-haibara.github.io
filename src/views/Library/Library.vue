@@ -9,13 +9,6 @@
         </v-img>
       </v-col>
 
-      <router-link :to="{name:'Article',params:{id:1}}">Read more</router-link>
-
-      <v-col>
-        <markdown v-for="(article,i) in articles" :key="i" :mdName="article"></markdown>
-      </v-col>
-
-      <!--
       <v-container>
         <v-container>
           <v-row>
@@ -37,19 +30,41 @@
           </v-row>
         </v-container>
       </v-container>
-      -->
+
+      <ul class="horizontal-list">
+        <li v-for="(article,i) in articles.names" :key="i">
+          <div>
+            <v-container>
+              <v-hover v-slot:default="{ hover }">
+                <v-card
+                  class="mx-auto"
+                  color="cyan lighten-4"
+                  width="400"
+                  min-height="200"
+                  v-on:click="$router.push('article/'+article)"
+                >
+                  <v-expand-transition>
+                    <div
+                      v-if="hover"
+                      class="d-flex transition-fast-in-fast-out black darken-2 v-card--reveal display-3 white--text"
+                      style="height: 100%;"
+                    ></div>
+                  </v-expand-transition>
+                  <v-card-title>{{ articles.titles[i] }}</v-card-title>
+                </v-card>
+              </v-hover>
+            </v-container>
+          </div>
+        </li>
+      </ul>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import Markdown from "./markdown.vue";
 import Posts from "./posts/posts.json";
 
 export default {
-  components: {
-    Markdown
-  },
   data: () => ({
     items: [
       {
@@ -77,10 +92,35 @@ export default {
   computed: {
     articles: {
       get() {
-        return Posts.posts;
+        let titles = [];
+        for (let i in Posts.posts) {
+          const source = require("./posts/" + Posts.posts[i] + ".md");
+          titles.push(source.slice(2, source.indexOf("\n", 0)));
+        }
+        return { names: Posts.posts, titles: titles };
+      }
+    },
+    getTitle: {
+      get() {
+        let mdName = 1;
+        const source = require("./posts/" + mdName + ".md");
+        return source.slice(2, source.indexOf("\n", 0));
       }
     }
   },
   method: {}
 };
 </script>
+
+<style scoped>
+.horizontal-list {
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.horizontal-list li {
+  display: inline-block;
+  vertical-align: top;
+}
+</style>
