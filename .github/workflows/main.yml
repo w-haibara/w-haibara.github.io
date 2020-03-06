@@ -17,7 +17,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: set post list,
       run: |
-        bash ./src/views/Library/posts/setPosts.sh
+        bash ./setPosts.sh
     - name: yarn install, build,
       run: |
         yarn install
