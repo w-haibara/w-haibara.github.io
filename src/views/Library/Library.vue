@@ -70,7 +70,7 @@ export default {
     slides: [ 
       {
         src:
-          "https://docs.google.com/presentation/d/e/2PACX-1vTes5SBAcxBFhm4UcK6gjWxkMlBp-psBN7L_ptVFb-l_v3LhuRYQKm_U29UDuOt9_GrIZcplnRkpCuT/pub?start=false&loop=false&delayms=3000",
+           "https://docs.google.com/presentation/d/e/2PACX-1vTes5SBAcxBFhm4UcK6gjWxkMlBp-psBN7L_ptVFb-l_v3LhuRYQKm_U29UDuOt9_GrIZcplnRkpCuT/embed?start=false&loop=false&delayms=3000",
         loading: true,
         title: "",
         text: "",
