@@ -67,7 +67,15 @@ import Posts from "./posts/posts.json";
 
 export default {
   data: () => ({
-    slides: [
+    slides: [ 
+      {
+        src:
+          "https://docs.google.com/presentation/d/e/2PACX-1vTes5SBAcxBFhm4UcK6gjWxkMlBp-psBN7L_ptVFb-l_v3LhuRYQKm_U29UDuOt9_GrIZcplnRkpCuT/pub?start=false&loop=false&delayms=3000"
+        loading: true,
+        title: "",
+        text: "",
+        dialog: false
+      },
       {
         src:
           "https://docs.google.com/presentation/d/e/2PACX-1vRPPGZz4zBfKcz1dMu4pnATGQh2ZYXRUJIL7QKuvgxygGB0ZJIBMSJ5elCOya-tasHictLT7brYrDk4/embed?start=false&loop=false&delayms=3000",
