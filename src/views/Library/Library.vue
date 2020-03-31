@@ -107,7 +107,15 @@ export default {
         title: "",
         text: "",
         dialog: false
-      }
+      },
+      {
+        src:
+          "https://docs.google.com/presentation/d/e/2PACX-1vQ0gX4zJRVfeKHzrhJaidJseJrk-xyQFGxIObCMr1Xs5laxahBzdV3SNhHqnrSr9aVAbmLsSygtnKyV/embed?start=false&loop=false&delayms=3000"
+        loading: true,
+        title: "",
+        text: "",
+        dialog: false
+      },      
     ]
   }),
   computed: {
