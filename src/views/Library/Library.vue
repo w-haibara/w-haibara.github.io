@@ -45,7 +45,7 @@
 
       <ul class="horizontal-list">
         <li>
-          <h1>Brog</h1>
+          <h1>Blog</h1>
         </li>
         <li v-for="(article,i) in articles.names" :key="i">
           <div>
