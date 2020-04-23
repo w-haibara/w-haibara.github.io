@@ -70,6 +70,14 @@ export default {
     slides: [ 
       {
         src:
+              "https://docs.google.com/presentation/d/e/2PACX-1vT1XIpafcbjijZVInZA6T3LF9BmMA-pM8ijH1Uiy6WRLMmyC2XUyhB_vqdpROYv3TKdhHo8haK_FtEX/embed?start=false&loop=false&delayms=3000",
+        loading: true,
+        title: "",
+        text: "",
+        dialog: false
+      },      
+      {
+        src:
           "https://docs.google.com/presentation/d/e/2PACX-1vQ0gX4zJRVfeKHzrhJaidJseJrk-xyQFGxIObCMr1Xs5laxahBzdV3SNhHqnrSr9aVAbmLsSygtnKyV/embed?start=false&loop=false&delayms=3000",
         loading: true,
         title: "",
@@ -116,14 +124,6 @@ export default {
         text: "",
         dialog: false
       },
-      {
-        src:
-              "https://docs.google.com/presentation/d/e/2PACX-1vT1XIpafcbjijZVInZA6T3LF9BmMA-pM8ijH1Uiy6WRLMmyC2XUyhB_vqdpROYv3TKdhHo8haK_FtEX/embed?start=false&loop=false&delayms=3000",
-        loading: true,
-        title: "",
-        text: "",
-        dialog: false
-      },      
     ]
   }),
   computed: {
