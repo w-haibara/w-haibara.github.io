@@ -1,3 +1,5 @@
+/src/views/Library/posts/posts.json
+
 .DS_Store
 node_modules
 /dist

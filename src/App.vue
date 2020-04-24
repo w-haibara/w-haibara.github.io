@@ -1,30 +1,35 @@
 <template>
   <v-app id="app">
-    <v-app-bar app color="black" dark height="40">
-      <v-toolbar-title>
-        <v-row>
-          <v-col>
-            <span>w_haibara Portfolio</span>
-          </v-col>
-          <v-col>
-            <v-btn text color="white" v-on:click="_goto('/', '0')">
-              <span class="white--text">Home</span>
-            </v-btn>
+    <v-navigation-drawer v-model="drawer" app>
+      <v-list>
+        <router-link v-for="menu in menus" :key="menu.title" :to="menu.src">
+          <v-list-item link>
+            <v-list-item-content>
+              <v-list-item-title>{{ menu.title }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </router-link>
 
-            <v-btn text color="white" v-on:click="_goto('/profile', '0')">
-              <span class="white--text">Profile</span>
-            </v-btn>
+        <v-list-group no-action sub-group value="true">
+          <template v-slot:activator>
+            <v-list-item-title>Playground</v-list-item-title>
+          </template>
+          <v-list v-for="menu in playground_menus" :key="menu.title">
+            <router-link :to="menu.src">
+              <v-list-item link>
+                <v-list-item-content>
+                  <v-list-item-title>{{ menu.title }}</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </router-link>
+          </v-list>
+        </v-list-group>
+      </v-list>
+    </v-navigation-drawer>
 
-            <v-btn text color="white" v-on:click="_goto('/works', '0')">
-              <span class="white--text">Works</span>
-            </v-btn>
-
-            <v-btn text color="white" v-on:click="_goto('/library', '0')">
-              <span class="white--text">Library</span>
-            </v-btn>
-          </v-col>
-        </v-row>
-      </v-toolbar-title>
+    <v-app-bar app dense color="black" dark>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <v-toolbar-title>w_haibara</v-toolbar-title>
     </v-app-bar>
 
     <router-view />
@@ -32,8 +37,6 @@
 </template>
 
 <script>
-import goTo from "vuetify/es5/services/goto";
-
 export default {
   props: {
     source: String
@@ -49,28 +52,58 @@ export default {
       require("./assets/slide6.png"),
       require("./assets/slide7.png")
     ],
+    menus: [
+      {
+        title: "Home",
+        src: "/"
+      },
+      {
+        title: "Profile",
+        src: "/profile"
+      },
+      {
+        title: "Works",
+        src: "/works"
+      },
+      {
+        title: "Library",
+        src: "/library"
+      },
+      {
+        title: "Arduino演習",
+        src: "/arduino"
+      }
+    ],
+    playground_menus: [
+      {
+        title: "Ball",
+        src: "/ball"
+      },
+      {
+        title: "Picsel",
+        src: "/picsel"
+      },
+      {
+        title: "TD4 Emulator",
+        src: "/td4"
+      }
+    ],
     dialog1: false,
     dialog2: false
   }),
   methods: {
     moveLink(url) {
       window.open(url, "_blank");
-    },
-    _goto(path, selector) {
-      this.$router.push(path).catch(
-        (
-          e // eslint-disable-line
-        ) => {}
-      );
-      if (selector != "0") {
-        goTo(selector, 0);
-      }
     }
   }
 };
 </script>
 
 <style scoped>
+a {
+  text-decoration: none;
+}
+
 #title ul div {
   display: inline-block;
   margin: 10px;
