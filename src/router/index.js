@@ -8,6 +8,8 @@ import Article from '@/views/Library/article.vue'
 import Ball from '@/views/playground/Ball.vue'
 import Picsel from '@/views/playground/Picsel.vue'
 import td4 from '@/views/playground/td4.vue'
+import Arduino from '@/views/seminar/arduino.vue'
+import ArduinoArticle from '@/views/seminar/article.vue'
 import NotFound from '@/views/NotFound.vue'
 
 Vue.use(VueRouter)
@@ -36,11 +38,6 @@ export default new VueRouter({
       component: Library
     },
     {
-      path: '/library',
-      name: 'Library',
-      component: Library
-    },
-    {
       path: '/article/:id',
       name: 'Article',
       component: Article
@@ -59,6 +56,16 @@ export default new VueRouter({
       path: '/td4',
       name: 'td4',
       component: td4
+    },
+    {
+      path: '/arduino',
+      name: 'arduino',
+      component: Arduino
+    },
+    {
+      path: '/arduino/:id',
+      name: 'ArduinoArticle',
+      component: ArduinoArticle
     },
     {
       path: '*',
