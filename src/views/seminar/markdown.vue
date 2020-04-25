@@ -12,7 +12,7 @@ export default {
   },
   computed: {
     source() {
-      return require("./posts/" + this.mdName + ".md");
+      return require("./posts/" + this.mdName + ".md").default;
     },
     _onlyTitle() {
       return this.onlyTitle == undefined ? false : this.onlyTitle;

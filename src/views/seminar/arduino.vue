@@ -2,18 +2,17 @@
   <v-app>
     <v-content>
       <v-col>
-        <v-img class="brack--text" height="90px" src="../../assets/slide5.png">
-          <v-col>
-            <h1 class="pagetitle font-weight-bold">はじめてのArduino</h1>
-          </v-col>
-        </v-img>
+        <v-col>
+          <h1 class="pagetitle font-weight-bold">はじめてのArduino</h1>
+        </v-col>
       </v-col>
 
       <v-col v-for="(article,i) in articles.names" :key="i">
         <div>
           <v-container>
-            <v-card min-height="100" v-on:click="$router.push('/arduino/'+article)">
+            <v-card min-height="80" v-on:click="$router.push('/arduino/'+article)">
               <v-card-title>{{ articles.titles[i] }}</v-card-title>
+              <v-card-text>{{ articles.keywords[i] }}</v-card-text>
             </v-card>
           </v-container>
         </div>
@@ -31,11 +30,24 @@ export default {
     articles: {
       get() {
         let titles = [];
+        let keywords = [];
         for (let i in Posts.posts) {
-          const source = require("./posts/" + Posts.posts[i] + ".md");
-          titles.push(source.slice(2, source.indexOf("\n", 0)));
+          let source = require("./posts/" + Posts.posts[i] + ".md").default.split(/\n/);
+
+          titles.push(
+            source
+              .slice(0, 1)
+              .toString()
+              .slice(1)
+          );
+          keywords.push(
+            source
+              .slice(1)
+              .toString()
+              .slice(1)
+          );
         }
-        return { names: Posts.posts, titles: titles };
+        return { names: Posts.posts, titles: titles, keywords: keywords };
       }
     }
   },

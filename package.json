@@ -8,6 +8,8 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@alexlit/vue-yandex-share": "^1.0.1",
+    "@cookieseater/vue-yandex-share": "^0.2.1",
     "axios": "^0.19.2",
     "core-js": "^3.6.4",
     "filestack-js": "^3.12.4",

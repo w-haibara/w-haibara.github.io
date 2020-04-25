@@ -1,9 +1,24 @@
 <template>
   <v-app>
     <v-content>
+      <v-row>
+        <div class="my-2">
+          <v-btn to="/arduino" class="mx-2" text active-class="white">Back</v-btn>
+        </div>
+      </v-row>
+
       <v-col>
         <markdown v-if="articleName != undefined" :mdName="articleName"></markdown>
       </v-col>
+
+      <v-row>
+        <div class="my-2">
+          <v-btn to="/arduino" class="mx-2" text active-class="white">Back</v-btn>
+        </div>
+        <div class="my-2">
+          <yandex-share v-bind="options" />
+        </div>
+      </v-row>
     </v-content>
   </v-app>
 </template>
@@ -11,12 +26,33 @@
 <script>
 import Markdown from "./markdown.vue";
 import Posts from "./posts/posts.json";
+import YandexShare from "@cookieseater/vue-yandex-share";
 
 export default {
   components: {
-    Markdown
+    Markdown,
+    "yandex-share": YandexShare
   },
-  data: () => ({}),
+  data: () => ({
+    options: {
+      accessToken: null,
+      bare: false,
+      counter: false,
+      copy: "last",
+      description: null,
+      direction: "horizontal",
+      hashtags: null,
+      image: null,
+      lang: "ru",
+      limit: 24,
+      popupDirection: "bottom",
+      popupPosition: "inner",
+      size: "m",
+      title: "",
+      url: null,
+      services: ["twitter"]
+    }
+  }),
   computed: {
     articleName: {
       get() {
@@ -25,10 +61,16 @@ export default {
       }
     }
   },
+  mounted() {
+    this.options.title = "Ardunio講習#"+this.articleName;
+  },
   updated() {
     if (Posts.posts.indexOf(this.articleName) < 0) {
       this.$router.push("../NotFound.vue");
     }
   }
 };
-</script>
+</script> 
+
+<style scoped>
+</style>
