@@ -42,7 +42,7 @@ export default {
           );
           keywords.push(
             source
-              .slice(1)
+              .slice(1, 2)
               .toString()
               .slice(1)
           );
