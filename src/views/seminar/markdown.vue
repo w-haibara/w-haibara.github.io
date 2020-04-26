@@ -28,7 +28,8 @@ export default {
 
 <style>
 img {
-max-width: 100%;
+width: 70%;
+max-width: 70%;
 height: auto;
 }
 </style>
