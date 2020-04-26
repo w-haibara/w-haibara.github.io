@@ -1,3 +1,5 @@
 pushd ./src/views/seminar/posts/assets
-mogrify -resize 540x840 ./*/*.png
+file ./*/*.PNG
+mogrify -resize 100x100 ./*/*.PNG
+file ./*/*.PNG
 popd
