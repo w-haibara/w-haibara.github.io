@@ -62,7 +62,7 @@ export default {
     }
   },
   mounted() {
-    this.options.title = "Ardunio入門#" + this.articleName;
+    this.options.title = "Arduino入門#" + this.articleName;
   },
   updated() {
     if (Posts.posts.indexOf(this.articleName) < 0) {
