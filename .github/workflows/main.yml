@@ -27,6 +27,7 @@ jobs:
         git config --global user.email "hwhaibarawataru@gmail.com"
         git remote set-url origin https://w-haibara:${GITHUB_TOKEN}@github.com/w-haibara/w-haibara.github.io/
         git checkout -b dev
+        git add .
         git commit -m "commit by Github Actions"
         git push origin master
     - name: yarn install, build,
