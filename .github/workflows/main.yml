@@ -29,6 +29,7 @@ jobs:
     - name: GitHub Push
       uses: ad-m/github-push-action@v0.5.0
       with:
+        branch: dev
         github_token: ${{ secrets.GITHUB_TOKEN }}
     - name: yarn install, build,
       run: |
