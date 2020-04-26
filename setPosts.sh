@@ -11,3 +11,6 @@ ls | grep .md | sed -e 's/.md//' | while read line; do echo \"${line}\",; done |
 echo ]} >> posts.json
 cat posts.json
 popd
+
+echo -n "#"
+date
