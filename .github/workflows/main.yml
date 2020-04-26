@@ -23,7 +23,8 @@ jobs:
         bash ./src/views/seminar/posts/assets/resize.sh
     - name: git commit, push,
       run: |
-        git commit -m ""
+        git remote set-url origin https://w-haibara:${ACTIONS_DEPLOY_KEY}@github.com/w-haibara/w-haibara.github.io/
+        git commit -m "commit by Github Actions"
         git push origin master
     - name: yarn install, build,
       run: |
