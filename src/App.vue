@@ -70,7 +70,7 @@ export default {
         src: "/library"
       },
       {
-        title: "Arduino演習",
+        title: "Arduino入門",
         src: "/arduino"
       }
     ],
