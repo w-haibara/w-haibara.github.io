@@ -21,6 +21,10 @@ jobs:
     - name: Resize assets,
       run: |
         bash ./src/views/seminar/posts/assets/resize.sh
+    - name: git commit, push,
+      run: |
+        git commit -m ""
+        git push origin master
     - name: yarn install, build,
       run: |
         yarn install
