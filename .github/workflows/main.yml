@@ -28,7 +28,7 @@ jobs:
         git remote set-url origin https://w-haibara:${GITHUB_TOKEN}@github.com/w-haibara/w-haibara.github.io/
         git add .
         git commit -m "commit by Github Actions"
-        git push -f origin dev
+        git push origin HEAD:dev
     - name: yarn install, build,
       run: |
         yarn install
