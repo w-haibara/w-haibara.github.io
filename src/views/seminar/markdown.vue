@@ -26,15 +26,10 @@ export default {
 };
 </script>
 
-<style scoped>
-.horizontal-list {
-  overflow-x: auto;
-  white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
-  padding: 0;
-}
-
-.horizontal-list li {
-  display: inline-block;
+<style>
+img {
+width:100%;
+max-width: 100%;
+height: auto;
 }
 </style>
