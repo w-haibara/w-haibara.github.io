@@ -50,7 +50,10 @@ export default {
       size: "m",
       title: "",
       url: null,
-      services: ["twitter"]
+      services: [
+        "twitter",
+        "facebook"
+      ]
     }
   }),
   computed: {
