@@ -25,7 +25,8 @@ jobs:
       run: |
         git config --local user.name "w-haibara"
         git config --local user.email "hwhaibarawataru@gmail.com"
-        git commit -am "commit by Github Actions"
+        git add -A
+        git commit -m "commit by Github Actions"
     - name: GitHub Push
       uses: ad-m/github-push-action@v0.5.0
       with:
