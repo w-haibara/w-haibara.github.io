@@ -21,14 +21,13 @@ jobs:
     - name: Resize assets,
       run: |
         bash ./src/views/seminar/posts/assets/resize.sh
-    - name: git commit, push,
+    - name: GitHub Commit
       run: |
-        git config --global user.name "w-haibara"
-        git config --global user.email "hwhaibarawataru@gmail.com"
-        git remote set-url origin https://w-haibara:${GITHUB_TOKEN}@github.com/w-haibara/w-haibara.github.io/
-        git checkout "${GITHUB_REF:11}"
+        git config --local user.name "w-haibara"
+        git config --local user.email "hwhaibarawataru@gmail.com"
         git commit -am "commit by Github Actions"
-        git push
+    - name: GitHub Push
+      uses: ad-m/github-push-action@v0.5.0
     - name: yarn install, build,
       run: |
         yarn install
