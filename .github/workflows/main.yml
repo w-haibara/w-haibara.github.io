@@ -18,6 +18,9 @@ jobs:
     - name: set post list,
       run: |
         bash ./setPosts.sh
+    - name: Resize assets,
+      run: |
+        bash ./src/views/seminar/posts/assets/resize.sh
     - name: yarn install, build,
       run: |
         yarn install
