@@ -109,8 +109,8 @@ export default {
       },
       {
         src: require("../assets/home-library.png"),
-        path: "/library",
-        title: "Library"
+        path: "/slides",
+        title: "Slides"
       }
     ],
     activeBtn: 1

@@ -3,8 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '@/views/Home.vue'
 import Profile from '@/views/Profile.vue'
 import Works from '@/views/Works.vue'
-import Library from '@/views/Library/Library.vue'
-import Article from '@/views/Library/article.vue'
+import Slides from '@/views/Slides.vue'
 import Ball from '@/views/playground/Ball.vue'
 import Picsel from '@/views/playground/Picsel.vue'
 import td4 from '@/views/playground/td4.vue'
@@ -33,14 +32,9 @@ export default new VueRouter({
       component: Works
     },
     {
-      path: '/library',
-      name: 'Library',
-      component: Library
-    },
-    {
-      path: '/article/:id',
-      name: 'Article',
-      component: Article
+      path: '/slides',
+      name: 'Slides',
+      component: Slides
     },
     {
       path: '/picsel',

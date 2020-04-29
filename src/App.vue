@@ -66,8 +66,8 @@ export default {
         src: "/works"
       },
       {
-        title: "Library",
-        src: "/library"
+        title: "Slides",
+        src: "/slides"
       },
       {
         title: "Arduino入門",
