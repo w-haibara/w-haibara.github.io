@@ -9,31 +9,25 @@
         </v-img>
       </v-col>
 
-      <v-container>
-        <v-container>
-          <v-row>
-            <v-carousel cycle interval="10000" height="360">
-              <v-carousel-item v-for="(item,i) in items" :key="i">
-                <v-card class="mx-auto" max-width="550" height="305">
-                  <v-img class="white--text" height="100px" :src="item.src"></v-img>
-                  <v-card-title>
-                    <div>
-                      <span>{{ item.title }}</span>
-                    </div>
-                    <div>
-                      <v-btn text :href="item.link" target="_blank">
-                        <v-icon>fab fa-github</v-icon>
-                      </v-btn>
-                    </div>
-                  </v-card-title>
-                  <v-card-subtitle>{{ item.keyword }}</v-card-subtitle>
-                  <v-card-text>{{ item.msg }}</v-card-text>
-                </v-card>
-              </v-carousel-item>
-            </v-carousel>
-          </v-row>
-        </v-container>
-      </v-container>
+      <div class="grid">
+        <div class="item" v-for="(item,i) in items" :key="i">
+          <v-card class="mx-auto" max-width="550" height="305">
+            <v-img class="white--text" height="100px" :src="item.src"></v-img>
+            <v-card-title>
+              <div>
+                <span>{{ item.title }}</span>
+              </div>
+              <div>
+                <v-btn text :href="item.link" target="_blank">
+                  <v-icon>fab fa-github</v-icon>
+                </v-btn>
+              </div>
+            </v-card-title>
+            <v-card-subtitle>{{ item.keyword }}</v-card-subtitle>
+            <v-card-text>{{ item.msg }}</v-card-text>
+          </v-card>
+        </div>
+      </div>
     </v-content>
   </v-app>
 </template>
@@ -72,7 +66,7 @@ export default {
         title: "自走式Webサーバー",
         keyword: "ESP8266 / Web Server / Robotics",
         msg:
-          "ESP8266は簡単にTCP/IPプロトコルを扱えるマイコンです． あくまで「マイコン」なので，GPIOの処理も可能です． 「それじゃあ，ESP8266をWebサーバーとして動かしながら，モーター制御もさせてみようかぁ」 という思い付きで作ったものです．",
+          "WiFIを扱えるマイコン ESP8266を使って制作した，走るWebサーバです．",
         link: "https://github.com/w-haibara/Self-propelledWebServer"
       }
     ],
@@ -85,3 +79,14 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+.item {
+  border-radius: 10px;
+}
+</style>
