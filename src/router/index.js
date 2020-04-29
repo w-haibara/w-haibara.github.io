@@ -4,6 +4,7 @@ import Home from '@/views/Home.vue'
 import Profile from '@/views/Profile.vue'
 import Works from '@/views/Works.vue'
 import Slides from '@/views/Slides.vue'
+import SlideView from '@/views/SlideView.vue'
 import Ball from '@/views/playground/Ball.vue'
 import Picsel from '@/views/playground/Picsel.vue'
 import td4 from '@/views/playground/td4.vue'
@@ -35,6 +36,11 @@ export default new VueRouter({
       path: '/slides',
       name: 'Slides',
       component: Slides
+    },
+    {
+      path: '/slides/:src',
+      name: 'SlideView',  
+      component: SlideView
     },
     {
       path: '/picsel',

@@ -10,7 +10,7 @@
       <v-col v-for="(article,i) in articles.names" :key="i">
         <div>
           <v-container>
-            <v-card min-height="80" v-on:click="$router.push('/arduino/'+article)">
+            <v-card v-on:click="$router.push('/arduino/'+article)">
               <v-card-title>{{ articles.titles[i] }}</v-card-title>
               <v-card-text>{{ articles.keywords[i] }}</v-card-text>
             </v-card>
