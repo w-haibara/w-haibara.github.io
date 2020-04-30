@@ -8,6 +8,7 @@ import SlideView from '@/views/SlideView.vue'
 import Ball from '@/views/playground/Ball.vue'
 import Picsel from '@/views/playground/Picsel.vue'
 import td4 from '@/views/playground/td4.vue'
+import Video from '@/views/playground/Video.vue'
 import Arduino from '@/views/seminar/arduino.vue'
 import ArduinoArticle from '@/views/seminar/article.vue'
 import NotFound from '@/views/NotFound.vue'
@@ -51,6 +52,11 @@ export default new VueRouter({
       path: '/ball',
       name: 'Ball',
       component: Ball
+    },
+    {
+      path: '/video',
+      name: 'Video',
+      component: Video
     },
     {
       path: '/td4',
