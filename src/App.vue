@@ -75,6 +75,7 @@ export default {
       }
     ],
     playground_menus: [
+/*
       {
         title: "Ball",
         src: "/ball"
@@ -83,9 +84,14 @@ export default {
         title: "Picsel",
         src: "/picsel"
       },
+*/
       {
         title: "TD4 Emulator",
         src: "/td4"
+      },
+      {
+        title: "Video Filter",
+        src: "/video"
       }
     ],
     dialog1: false,
