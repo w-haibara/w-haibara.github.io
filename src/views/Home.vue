@@ -88,6 +88,9 @@
             </v-btn>
           </v-row>
         </v-row>
+        <v-row justify="end">
+          <a href="https://github.com/keshikan/DSEG">Font "DSEG" by けしかん</a>
+        </v-row>
       </v-container>
     </v-content>
   </v-app>
@@ -183,7 +186,7 @@ export default {
 
 .CounterText {
   font-family: "DSEG";
-  font-size: 24px;
+  font-size: 18px;
 }
 
 .Counter {
@@ -202,6 +205,6 @@ export default {
 
 .Counter li p {
   display: block;
-  padding: 12px;
+  padding: 8px;
 }
 </style>
