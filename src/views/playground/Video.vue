@@ -40,7 +40,8 @@ export default {
       prop: {
         binarize_threshold: 127.5,
         gamma_val: 2.0
-      }
+      },
+      stop: false
     },
 
     video: {},
@@ -48,7 +49,7 @@ export default {
     captures: []
   }),
   methods: {
-    async main(mode) {
+    async camera_start(mode) {
       const canvas = document.getElementById("canvas");
       const ctx = canvas.getContext("2d");
       const offscreen = document.createElement("canvas");
@@ -57,6 +58,7 @@ export default {
       const stream = await navigator.mediaDevices.getUserMedia({
         video: true
       });
+
       video.srcObject = stream;
       video.onloadedmetadata = () => {
         video.play();
@@ -66,6 +68,15 @@ export default {
       };
 
       function tick() {
+        if (mode.stop) {
+          let tracks = stream.getTracks();
+          tracks.forEach(function(track) {
+            track.stop();
+          });
+          console.log("camera stopped");
+          return;
+        }
+
         offscreenCtx.drawImage(video, 0, 0);
         const imageData = offscreenCtx.getImageData(
           0,
@@ -273,7 +284,11 @@ export default {
     }
   },
   mounted() {
-    this.main(this.mode);
+    this.camera_start(this.mode);
+  },
+  beforeDestroy() {
+    console.log("beforeDestroy");
+    this.mode.stop = true;
   }
 };
 </script>
