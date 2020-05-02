@@ -43,6 +43,7 @@ class slide {
 export default {
   data: () => ({
     urls: [
+      "https://docs.google.com/presentation/d/e/2PACX-1vSkb3gsaoyCpDjz-D_O3tluDR-8HJuO80nzwe0GX4KPLEacfKVaEZ3Cq2-brWmS16Bn6_JbzbP9hNM6/embed?start=false&loop=false&delayms=3000",
       "https://docs.google.com/presentation/d/e/2PACX-1vT1XIpafcbjijZVInZA6T3LF9BmMA-pM8ijH1Uiy6WRLMmyC2XUyhB_vqdpROYv3TKdhHo8haK_FtEX/embed?start=false&loop=false&delayms=3000",
       "https://docs.google.com/presentation/d/e/2PACX-1vQ0gX4zJRVfeKHzrhJaidJseJrk-xyQFGxIObCMr1Xs5laxahBzdV3SNhHqnrSr9aVAbmLsSygtnKyV/embed?start=false&loop=false&delayms=3000",
       "https://docs.google.com/presentation/d/e/2PACX-1vTes5SBAcxBFhm4UcK6gjWxkMlBp-psBN7L_ptVFb-l_v3LhuRYQKm_U29UDuOt9_GrIZcplnRkpCuT/embed?start=false&loop=false&delayms=3000",
