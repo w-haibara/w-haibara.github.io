@@ -22,6 +22,10 @@ export default new VueRouter({
      * redirects
      */
     {
+      path: '/library',
+      redirect: '/slides'
+    },
+    {
       path: '/slides/https:%2F%2Fdocs.google.com%2Fpresentation%2Fd%2Fe%2F2PACX-1vSkb3gsaoyCpDjz-D_O3tluDR-8HJuO80nzwe0GX4KPLEacfKVaEZ3Cq2-brWmS16Bn6_JbzbP9hNM6%2Fembed%3Fstart=false&loop=false&delayms=3000',
       redirect: '/slides/2PACX-1vSkb3gsaoyCpDjz-D_O3tluDR-8HJuO80nzwe0GX4KPLEacfKVaEZ3Cq2-brWmS16Bn6_JbzbP9hNM6'
     },
