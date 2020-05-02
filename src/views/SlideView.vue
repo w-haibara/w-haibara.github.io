@@ -8,7 +8,7 @@
       </v-col>
 
       <iframe
-        :src="$route.params.src"
+        :src="'https://docs.google.com/presentation/d/e/' + $route.params.src + '/embed?start=false&loop=false&delayms=3000'"
         frameborder="0"
         allowfullscreen="true"
         mozallowfullscreen="true"
