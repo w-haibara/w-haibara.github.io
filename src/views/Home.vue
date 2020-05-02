@@ -19,6 +19,21 @@
         <v-row justify="center">
           <h1 class="pagetitle font-weight-bold">w_haibara Portfolio</h1>
         </v-row>
+        <v-row justify="center">
+          <nav class="Counter">
+            <ul>
+              <li>
+                <p>あなたは</p>
+              </li>
+              <li>
+                <div class="CounterText">{{ accessCounter }}</div>
+              </li>
+              <li>
+                <p>人目の訪問者です。</p>
+              </li>
+            </ul>
+          </nav>
+        </v-row>
       </v-col>
 
       <v-container>
@@ -80,6 +95,7 @@
 
 <script>
 import goTo from "vuetify/es5/services/goto";
+import axios from "axios";
 
 export default {
   props: {
@@ -113,7 +129,8 @@ export default {
         title: "Slides"
       }
     ],
-    activeBtn: 1
+    activeBtn: 1,
+    accessCounter: "--------"
   }),
   methods: {
     moveLink(url) {
@@ -124,12 +141,31 @@ export default {
       if (selector != "0") {
         goTo(selector, 0);
       }
+    },
+    count() {
+      function zeroPadding(num, len) {
+        return (Array(len).join("0") + num).slice(-len);
+      }
+      axios
+        .get(
+          "https://script.google.com/macros/s/AKfycbwuIODk4RGEI9m_n7rX6ljynPh9SS6-Gp4scCp4MQ0WnBTu2M4/exec"
+        )
+        .then(response => {
+          console.log(response.data.count);
+          this.accessCounter = zeroPadding(response.data.count, 8);
+        })
+        .catch(err => {
+          console.log("axios_err:", err);
+        });
     }
+  },
+  created() {
+    this.count();
   }
 };
 </script>
 
-<style>
+<style scoped>
 .v-card--reveal {
   align-items: center;
   bottom: 0;
@@ -137,5 +173,35 @@ export default {
   opacity: 0.5;
   position: absolute;
   width: 100%;
+}
+
+@font-face {
+  font-family: "DSEG";
+  src: url("fonts-DSEG_v046/DSEG7-Modern-MINI/DSEG7ModernMini-Bold.woff")
+    format("woff");
+}
+
+.CounterText {
+  font-family: "DSEG";
+  font-size: 24px;
+}
+
+.Counter {
+  text-align: center;
+}
+
+.Counter ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.Counter li {
+  display: inline-block;
+}
+
+.Counter li p {
+  display: block;
+  padding: 12px;
 }
 </style>
