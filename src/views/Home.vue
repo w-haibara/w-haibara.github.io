@@ -4,7 +4,7 @@
       <v-row id="home">
         <v-carousel
           cycle
-          height="200"
+          height="170"
           interval="3000"
           hide-delimiter-background
           hide-delimiters
@@ -25,7 +25,7 @@
               <li>
                 <p>あなたは</p>
               </li>
-              <li>
+              <li class="CounterMain">
                 <div class="CounterText">{{ accessCounter }}</div>
               </li>
               <li>
@@ -184,11 +184,6 @@ export default {
     format("woff");
 }
 
-.CounterText {
-  font-family: "DSEG";
-  font-size: 18px;
-}
-
 .Counter {
   text-align: center;
 }
@@ -206,5 +201,18 @@ export default {
 .Counter li p {
   display: block;
   padding: 8px;
+}
+
+.CounterText {
+  color: white;
+  font-family: "DSEG";
+  font-size: 18px;
+}
+
+.CounterMain {
+  padding: 0em 0em;
+  margin: 0em 0;
+  background: black;
+  border: double 5px #83b3a4;
 }
 </style>
