@@ -11,6 +11,7 @@ import td4 from '@/views/playground/td4.vue'
 import Video from '@/views/playground/Video.vue'
 import Arduino from '@/views/seminar/arduino.vue'
 import ArduinoArticle from '@/views/seminar/article.vue'
+import Cube from '@/views/playground/three/cube.vue'
 import NotFound from '@/views/NotFound.vue'
 
 Vue.use(VueRouter)
@@ -87,6 +88,11 @@ export default new VueRouter({
       path: '/arduino/:id',
       name: 'ArduinoArticle',
       component: ArduinoArticle
+    },
+    {
+      path: '/three/cube',
+      name: 'Cube',
+      component: Cube
     },
     {
       path: '*',

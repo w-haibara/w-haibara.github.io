@@ -16,6 +16,8 @@
     "intersection-observer": "^0.7.0",
     "marked": "^0.8.0",
     "pdfjs-dist": "^2.2.228",
+    "three": "^0.116.1",
+    "three-orbitcontrols": "^2.110.3",
     "vue": "^2.6.11",
     "vue-analytics": "^5.22.1",
     "vue-loading-template": "^1.3.2",
