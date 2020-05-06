@@ -16,7 +16,7 @@
 
 
 <script>
-const wasm_file_name = "count.wasm";
+const wasm_file_path = "bin/count.wasm";
 
 export default {
   data: () => ({
@@ -26,9 +26,9 @@ export default {
   }),
   methods: {
     main(data) {
-      console.log("file: " + wasm_file_name);
+      console.log("file: " + wasm_file_path);
 
-      fetch(wasm_file_name)
+      fetch(wasm_file_path)
         .then(function(response) {
           return response.arrayBuffer();
         })
