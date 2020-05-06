@@ -7,11 +7,13 @@ import Slides from '@/views/Slides.vue'
 import SlideView from '@/views/SlideView.vue'
 import Ball from '@/views/playground/Ball.vue'
 import Picsel from '@/views/playground/Picsel.vue'
-import td4 from '@/views/playground/td4.vue'
+import TD4 from '@/views/playground/TD4.vue'
 import Video from '@/views/playground/Video.vue'
+import Wasm_count from '@/views/playground/wasm/count/count.vue'
+import Cube from '@/views/playground/three/cube.vue'
+import Terminal from '@/views/playground/xterm/terminal.vue'
 import Arduino from '@/views/seminar/arduino.vue'
 import ArduinoArticle from '@/views/seminar/article.vue'
-import Cube from '@/views/playground/three/cube.vue'
 import NotFound from '@/views/NotFound.vue'
 
 Vue.use(VueRouter)
@@ -76,8 +78,23 @@ export default new VueRouter({
     },
     {
       path: '/td4',
-      name: 'td4',
-      component: td4
+      name: 'TD4',
+      component: TD4
+    },
+    {
+      path: '/wasm/count',
+      name: 'Wasm_count',
+      component: Wasm_count
+    },
+    {
+      path: '/three/cube',
+      name: 'Cube',
+      component: Cube
+    },
+    {
+      path: '/xterm/terminal',
+      name: 'Terminal',
+      component: Terminal
     },
     {
       path: '/arduino',
@@ -88,11 +105,6 @@ export default new VueRouter({
       path: '/arduino/:id',
       name: 'ArduinoArticle',
       component: ArduinoArticle
-    },
-    {
-      path: '/three/cube',
-      name: 'Cube',
-      component: Cube
     },
     {
       path: '*',
