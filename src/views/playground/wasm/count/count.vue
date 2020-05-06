@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     main(data) {
-      fetch(wasm_file)
+      fetch(this.wasm_file)
         .then(function(response) {
           return response.arrayBuffer();
         })
