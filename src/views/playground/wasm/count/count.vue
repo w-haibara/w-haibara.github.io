@@ -16,18 +16,19 @@
 
 
 <script>
+const wasm_file_name = "count.wasm";
+
 export default {
   data: () => ({
     data: {
       val: "-"
     }
   }),
-  cpmputed() {
-    wasm_file: () => "count.wasm";
-  },
   methods: {
     main(data) {
-      fetch(this.wasm_file)
+      console.log("file: " + wasm_file_name);
+
+      fetch(wasm_file_name)
         .then(function(response) {
           return response.arrayBuffer();
         })
