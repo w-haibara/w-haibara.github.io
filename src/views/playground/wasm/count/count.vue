@@ -22,9 +22,12 @@ export default {
       val: "-"
     }
   }),
+  cpmputed() {
+    wasm_file: () => "count.wasm";
+  },
   methods: {
     main(data) {
-      fetch("sample.wasm")
+      fetch(wasm_file)
         .then(function(response) {
           return response.arrayBuffer();
         })
