@@ -16,7 +16,7 @@
 
 
 <script>
-const wasm_file_path = "bin/count.wasm";
+const wasm_file_path = "wasm/count.wasm";
 
 export default {
   data: () => ({
