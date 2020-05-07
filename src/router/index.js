@@ -9,7 +9,7 @@ import Ball from '@/views/playground/Ball.vue'
 import Picsel from '@/views/playground/Picsel.vue'
 import TD4 from '@/views/playground/TD4.vue'
 import Video from '@/views/playground/Video.vue'
-import Wasm_count from '@/views/playground/wasm/count/count.vue'
+import Wasm_basic from '@/views/playground/wasm/basic.vue'
 import Cube from '@/views/playground/three/cube.vue'
 import Terminal from '@/views/playground/xterm/terminal.vue'
 import Arduino from '@/views/seminar/arduino.vue'
@@ -31,6 +31,10 @@ export default new VueRouter({
     {
       path: '/slides/https:%2F%2Fdocs.google.com%2Fpresentation%2Fd%2Fe%2F2PACX-1vSkb3gsaoyCpDjz-D_O3tluDR-8HJuO80nzwe0GX4KPLEacfKVaEZ3Cq2-brWmS16Bn6_JbzbP9hNM6%2Fembed%3Fstart=false&loop=false&delayms=3000',
       redirect: '/slides/2PACX-1vSkb3gsaoyCpDjz-D_O3tluDR-8HJuO80nzwe0GX4KPLEacfKVaEZ3Cq2-brWmS16Bn6_JbzbP9hNM6'
+    },
+    {
+      path: '/wasm/count',
+      redirect: '/wasm/basic'
     },
 
     /*
@@ -82,9 +86,9 @@ export default new VueRouter({
       component: TD4
     },
     {
-      path: '/wasm/count',
-      name: 'Wasm_count',
-      component: Wasm_count
+      path: '/wasm/basic',
+      name: 'Wasm_basic',
+      component: Wasm_basic
     },
     {
       path: '/three/cube',
