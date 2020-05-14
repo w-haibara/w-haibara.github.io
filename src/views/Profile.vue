@@ -23,7 +23,7 @@
                   <v-card>
                     <v-card-title class="headline">所属</v-card-title>
                     <v-card-text>
-                      <span>室蘭工業大学 情報電子工学系学科 2年</span>
+                      <span>室蘭工業大学 情報電子工学系学科 3年</span>
                       <br />
                       <span>一般社団法人LOCAL (学生部 部長)</span>
                     </v-card-text>
