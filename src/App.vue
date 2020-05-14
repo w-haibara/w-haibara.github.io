@@ -32,7 +32,9 @@
       <v-toolbar-title>w_haibara</v-toolbar-title>
     </v-app-bar>
 
-    <router-view />
+    <transition>
+      <router-view />
+    </transition>
   </v-app>
 </template>
 
@@ -75,7 +77,7 @@ export default {
       }
     ],
     playground_menus: [
-/*
+      /*
       {
         title: "Ball",
         src: "/ball"
@@ -114,5 +116,27 @@ a {
   display: inline-block;
   margin: 10px;
   vertical-align: center;
+}
+
+.v-enter {
+  transform: translate(0, 100px);
+  opacity: 0;
+}
+.v-enter-to {
+  opacity: 1;
+}
+.v-enter-active {
+  transition: all 1s 0s ease;
+}
+.v-leave {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+.v-leave-to {
+  transform: translate(0, -100px);
+  opacity: 0;
+}
+.v-leave-active {
+  transition: all 0.5s 0s ease;
 }
 </style>
