@@ -1,11 +1,7 @@
 <template>
   <v-app>
     <v-content>
-      <v-col cols="12">
-        <v-row v-show="!loaded" align="center" justify="center">
-          <v-progress-circular indeterminate color="primary" size="100"></v-progress-circular>
-        </v-row>
-      </v-col>
+      <vue-loading type="cylon" color="#333" :size="{ width: '150px', height: '150px' }"></vue-loading>
 
       <iframe
         :src="'https://docs.google.com/presentation/d/e/' + $route.params.src + '/embed?start=false&loop=false&delayms=3000'"
@@ -21,7 +17,12 @@
 </template>
 
 <script>
+import { VueLoading } from "vue-loading-template";
+
 export default {
+  components: {
+    VueLoading
+  },
   data: () => ({
     loaded: false
   }),
