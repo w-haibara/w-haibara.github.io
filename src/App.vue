@@ -2,7 +2,7 @@
   <v-app id="app">
     <transition name="fade">
       <div v-if="!loaded">
-        <vue-loading type="cylon" color="#333" :size="{ width: '150px', height: '150px' }"></vue-loading>
+        <animation @animationd="loaded = true" />
       </div>
     </transition>
 
@@ -49,11 +49,11 @@
 </template>
 
 <script>
-import { VueLoading } from "vue-loading-template";
+import animation from "./Animation.vue";
 
 export default {
   components: {
-    VueLoading
+    animation
   },
   data: () => ({
     drawer: null,
@@ -117,8 +117,8 @@ export default {
       window.open(url, "_blank");
     }
   },
-  mounted() {
-    this.loaded = true;
+  created() {
+    this.loaded = this.$route.path != "/";
   }
 };
 </script>
