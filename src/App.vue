@@ -1,47 +1,59 @@
 <template>
   <v-app id="app">
-    <v-navigation-drawer v-model="drawer" app>
-      <v-list>
-        <router-link v-for="menu in menus" :key="menu.title" :to="menu.src">
-          <v-list-item link>
-            <v-list-item-content>
-              <v-list-item-title>{{ menu.title }}</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </router-link>
+    <transition name="fade">
+      <div v-if="!loaded">
+        <vue-loading type="cylon" color="#333" :size="{ width: '150px', height: '150px' }"></vue-loading>
+      </div>
+    </transition>
 
-        <v-list-group no-action sub-group value="true">
-          <template v-slot:activator>
-            <v-list-item-title>Playground</v-list-item-title>
-          </template>
-          <v-list v-for="menu in playground_menus" :key="menu.title">
-            <router-link :to="menu.src">
+    <transition name="fade">
+      <div v-if="loaded">
+        <v-navigation-drawer v-model="drawer" app>
+          <v-list>
+            <router-link v-for="menu in menus" :key="menu.title" :to="menu.src">
               <v-list-item link>
                 <v-list-item-content>
                   <v-list-item-title>{{ menu.title }}</v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
             </router-link>
+
+            <v-list-group no-action sub-group value="true">
+              <template v-slot:activator>
+                <v-list-item-title>Playground</v-list-item-title>
+              </template>
+              <v-list v-for="menu in playground_menus" :key="menu.title">
+                <router-link :to="menu.src">
+                  <v-list-item link>
+                    <v-list-item-content>
+                      <v-list-item-title>{{ menu.title }}</v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
+                </router-link>
+              </v-list>
+            </v-list-group>
           </v-list>
-        </v-list-group>
-      </v-list>
-    </v-navigation-drawer>
+        </v-navigation-drawer>
 
-    <v-app-bar app dense color="black" dark>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-toolbar-title>w_haibara</v-toolbar-title>
-    </v-app-bar>
+        <v-app-bar app dense color="black" dark>
+          <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+          <v-toolbar-title>w_haibara</v-toolbar-title>
+        </v-app-bar>
 
-    <transition>
-      <router-view />
+        <transition>
+          <router-view />
+        </transition>
+      </div>
     </transition>
   </v-app>
 </template>
 
 <script>
+import { VueLoading } from "vue-loading-template";
+
 export default {
-  props: {
-    source: String
+  components: {
+    VueLoading
   },
   data: () => ({
     drawer: null,
@@ -97,12 +109,16 @@ export default {
       }
     ],
     dialog1: false,
-    dialog2: false
+    dialog2: false,
+    loaded: false
   }),
   methods: {
     moveLink(url) {
       window.open(url, "_blank");
     }
+  },
+  mounted() {
+    this.loaded = true;
   }
 };
 </script>
@@ -116,6 +132,15 @@ a {
   display: inline-block;
   margin: 10px;
   vertical-align: center;
+}
+
+.fade-enter-active {
+  transition: opacity 1s;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
 }
 
 .v-enter {
