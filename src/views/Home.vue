@@ -145,25 +145,30 @@ export default {
         goTo(selector, 0);
       }
     },
-    count() {
+    async count() {
       function zeroPadding(num, len) {
         return (Array(len).join("0") + num).slice(-len);
       }
-      axios
+
+      var result = 0;
+      await axios
         .get(
           "https://script.google.com/macros/s/AKfycbwuIODk4RGEI9m_n7rX6ljynPh9SS6-Gp4scCp4MQ0WnBTu2M4/exec"
         )
         .then(response => {
-          console.log(response.data.count);
-          this.accessCounter = zeroPadding(response.data.count, 8);
+          result = zeroPadding(response.data.count, 8);
         })
         .catch(err => {
           console.log("axios_err:", err);
         });
+      return result;
     }
   },
-  created() {
-    this.count();
+  async created() {
+    const param = this.$route.params["count"];
+    this.accessCounter = Number.isInteger(Number(param))
+      ? param
+      : await this.count();
   }
 };
 </script>
@@ -213,7 +218,7 @@ export default {
 
 /* スタートアニメ―ションからHomeを表示する際のアニメーション */
 .homePage {
-  animation: fade s ease-in 0s 1 forwards;
+  animation: fade 2.4s ease-in 0s 1 forwards;
   -webkit-animation: fade 2.4s ease-in 0s 1 forwards;
 }
 

@@ -50,6 +50,7 @@
 
 <script>
 import animation from "./Animation.vue";
+import axios from "axios";
 
 export default {
   components: {
@@ -110,15 +111,43 @@ export default {
     ],
     dialog1: false,
     dialog2: false,
-    loaded: false
+    loaded: false,
+    accessCounterNum: "--------"
   }),
+  watch: {
+    accessCounterNum: function() {
+      this.$router.push({
+        name: "Home",
+        params: { count: this.accessCounterNum }
+      });
+    }
+  },
   methods: {
     moveLink(url) {
       window.open(url, "_blank");
+    },
+    count() {
+      function zeroPadding(num, len) {
+        return (Array(len).join("0") + num).slice(-len);
+      }
+      axios
+        .get(
+          "https://script.google.com/macros/s/AKfycbwuIODk4RGEI9m_n7rX6ljynPh9SS6-Gp4scCp4MQ0WnBTu2M4/exec"
+        )
+        .then(response => {
+          this.accessCounterNum = zeroPadding(response.data.count, 8);
+        })
+        .catch(err => {
+          console.log("axios_err:", err);
+        });
     }
   },
   created() {
-    this.loaded = this.$route.path != "/";
+    if (this.$route.path != "/") {
+      this.loaded = true;
+    } else {
+      this.count();
+    }
   }
 };
 </script>
@@ -134,15 +163,19 @@ a {
   vertical-align: center;
 }
 
+/* スタートアニメ―ションからAppBarを表示する際のトランジション */
 .fade-enter-active {
-  transition: opacity 1s;
+  transition: all 1s ease;
 }
-
-.fade-enter,
 .fade-leave-active {
+  transition: all 1s ease;
+}
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
 }
 
+/* ページ遷移時のトランジション */
 .v-enter {
   transform: translate(0, 100px);
   opacity: 0;

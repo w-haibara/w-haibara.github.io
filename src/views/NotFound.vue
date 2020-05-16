@@ -58,6 +58,11 @@ export default {
         goTo(selector, 0);
       }
     }
+  },
+  created() {
+    if (this.$route.path === "/") {
+      this.$router.push("/home");
+    }
   }
 };
 </script>
