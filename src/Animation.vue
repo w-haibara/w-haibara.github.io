@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="background">
     <div class="page">
       <div class="box">
         <span class="title1">w-haibara portfolio</span>
@@ -55,18 +55,6 @@ export default {
 
   background-size: cover;
   background-position: center;
-
-  background: #abbaab; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #ffffff,
-    #abbaab
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #ffffff,
-    #abbaab
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 span.title1 {

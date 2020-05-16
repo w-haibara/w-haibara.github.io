@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-content>
+    <v-content class="background">
       <v-col>
         <v-col>
           <h1 class="pagetitle font-weight-bold">はじめてのArduino</h1>
@@ -32,7 +32,9 @@ export default {
         let titles = [];
         let keywords = [];
         for (let i in Posts.posts) {
-          let source = require("./posts/" + Posts.posts[i] + ".md").default.split(/\n/);
+          let source = require("./posts/" +
+            Posts.posts[i] +
+            ".md").default.split(/\n/);
 
           titles.push(
             source

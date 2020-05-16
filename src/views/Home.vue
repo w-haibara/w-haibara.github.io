@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-content class="homePage">
+    <v-content class="background">
       <v-row id="home">
         <v-carousel
           cycle
@@ -217,7 +217,7 @@ export default {
 }
 
 /* スタートアニメ―ションからHomeを表示する際のアニメーション */
-.homePage {
+.background {
   animation: fade 2.4s ease-in 0s 1 forwards;
   -webkit-animation: fade 2.4s ease-in 0s 1 forwards;
 }

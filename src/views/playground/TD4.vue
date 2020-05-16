@@ -1,6 +1,6 @@
 <template>
   <v-app id>
-    <v-content>
+    <v-content class="background">
       <v-row justify="space-around" no-gutters>
         <div id="title">
           <ul>
@@ -16,7 +16,7 @@
 
       <v-col no-gutters>
         <v-row justify="space-around" no-gutters>
-          <v-card width="33%" outlined tile>
+          <v-card class="cardColor" width="33%" tile>
             <v-col no-gutters>
               <h4>Metrics</h4>
               <v-col>
@@ -57,7 +57,7 @@
               </v-col>
             </v-col>
           </v-card>
-          <v-card width="33%" outlined tile>
+          <v-card class="cardColor" width="33%" tile>
             <v-col no-gutters>
               <h4>I/O</h4>
               <v-container>
@@ -92,7 +92,7 @@
               </v-container>
             </v-col>
           </v-card>
-          <v-card width="33%" outlined tile>
+          <v-card class="cardColor" width="33%" tile>
             <v-col no-gutters>
               <h4>Clock Generator</h4>
               <v-col>
@@ -139,7 +139,7 @@
             </v-col>
           </v-card>
         </v-row>
-        <v-card width="100%" outlined tile>
+        <v-card class="cardColor" width="100%" tile>
           <v-col no-gutters>
             <h4>Program Memory</h4>
             <v-col>
@@ -754,5 +754,10 @@ export default {
   display: inline-block;
   width: 140px;
   vertical-align: center;
+}
+
+.cardColor {
+  background-color: rgba(255, 255, 255, 0.5) !important;
+  border-color: white !important;
 }
 </style>>

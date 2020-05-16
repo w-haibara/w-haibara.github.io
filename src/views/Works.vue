@@ -1,6 +1,6 @@
 <template>
   <v-app id>
-    <v-content>
+    <v-content class="background">
       <v-col>
         <v-img class="black--text" height="90px" src="../assets/slide4.png">
           <v-col>

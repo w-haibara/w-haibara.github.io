@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-content>
+    <v-content class="background">
       <v-col>
         <v-img class="brack--text" height="90px" src="../assets/slide5.png">
           <v-col>

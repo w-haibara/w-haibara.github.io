@@ -1,6 +1,6 @@
 <template>
   <v-app id>
-    <v-content>
+    <v-content class="background">
       <v-row justify="space-around" no-gutters>
         <canvas id="canvas"></canvas>
       </v-row>

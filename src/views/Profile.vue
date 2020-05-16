@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-content>
+    <v-content class="background">
       <v-col>
         <v-img class="white--text" height="90px" src="../assets/slide1.png">
           <v-col>
@@ -11,7 +11,7 @@
 
       <v-container>
         <v-container>
-          <v-row class="white lighten-4">
+          <v-row>
             <v-col>
               <h1 class="pagetitle font-weight-bold">Wataru HAIBARA</h1>
               <v-row>
