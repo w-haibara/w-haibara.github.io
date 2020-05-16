@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-content>
+    <v-content class="homePage">
       <v-row id="home">
         <v-carousel
           cycle
@@ -178,41 +178,60 @@ export default {
   width: 100%;
 }
 
+/* アクセスカウンタの装飾 */
 @font-face {
   font-family: "DSEG";
   src: url("fonts-DSEG_v046/DSEG7-Modern-MINI/DSEG7ModernMini-Bold.woff")
     format("woff");
 }
-
 .Counter {
   text-align: center;
 }
-
 .Counter ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-
 .Counter li {
   display: inline-block;
 }
-
 .Counter li p {
   display: block;
   padding: 8px;
 }
-
 .CounterText {
   color: white;
   font-family: "DSEG";
   font-size: 18px;
 }
-
 .CounterMain {
   padding: 0em 0em;
   margin: 0em 0;
   background: black;
   border: double 5px #83b3a4;
+}
+
+/* スタートアニメ―ションからHomeを表示する際のアニメーション */
+.homePage {
+  animation: fade s ease-in 0s 1 forwards;
+  -webkit-animation: fade 2.4s ease-in 0s 1 forwards;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
 }
 </style>
