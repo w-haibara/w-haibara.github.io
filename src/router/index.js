@@ -10,6 +10,7 @@ import Picsel from '@/views/playground/Picsel.vue'
 import TD4 from '@/views/playground/TD4.vue'
 import Video from '@/views/playground/Video.vue'
 import Wasm_basic from '@/views/playground/wasm/basic.vue'
+//import Audio_basic from '@/views/playground/audio/basic.vue'
 import Cube from '@/views/playground/three/cube.vue'
 import Terminal from '@/views/playground/xterm/terminal.vue'
 import Arduino from '@/views/seminar/arduino.vue'
@@ -24,6 +25,10 @@ export default new VueRouter({
     /*
      * redirects
      */
+    {
+      path: '/home',
+      redirect: '/home/re'
+    },
     {
       path: '/library',
       redirect: '/slides'
@@ -41,7 +46,7 @@ export default new VueRouter({
      * routes
      */
     {
-      path: '/',
+      path: '/home/:count',
       name: 'Home',
       component: Home
     },
@@ -90,6 +95,13 @@ export default new VueRouter({
       name: 'Wasm_basic',
       component: Wasm_basic
     },
+    /*
+        {
+          path: '/audio/basic',
+          name: 'Audio_basic',
+          component: Audio_basic
+        },
+    */
     {
       path: '/three/cube',
       name: 'Cube',
