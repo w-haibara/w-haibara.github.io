@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-content>
+    <v-content class="background">
       <vue-loading type="cylon" color="#333" :size="{ width: '150px', height: '150px' }"></vue-loading>
 
       <iframe
