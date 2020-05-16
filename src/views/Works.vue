@@ -2,7 +2,7 @@
   <v-app id>
     <v-content class="background">
       <v-col>
-        <v-img class="black--text" height="90px" src="../assets/slide4.png">
+        <v-img class="black--text" height="90px" src="../assets/slide3.png">
           <v-col>
             <h1 class="pagetitle font-weight-bold">Works</h1>
           </v-col>
