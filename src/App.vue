@@ -41,7 +41,7 @@
         </v-app-bar>
 
         <transition>
-          <router-view />
+          <router-view class="page" />
         </transition>
       </div>
     </transition>
@@ -153,6 +153,17 @@ export default {
 </script>
 
 <style scoped>
+.page {
+  height: 100vh;
+  overflow: scroll;
+  -ms-overflow-style: none; /* for IE, Edge */
+  scrollbar-width: none; /* for Firefox */
+}
+.page::-webkit-scrollbar {
+  /* forChrome, Safari */
+  display: none;
+}
+
 a {
   text-decoration: none;
 }
