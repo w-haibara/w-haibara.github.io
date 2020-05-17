@@ -1,6 +1,6 @@
 <template>
   <v-app id>
-    <v-content>
+    <v-content class="background">
       <v-col>
         <v-row justify="center">
           <h1 class="pagetitle font-weight-bold">404 Not Found</h1>
@@ -46,7 +46,7 @@ export default {
     cards: [
       {
         src: require("../assets/notfound-home.jpg"),
-        path: "/",
+        path: "/home",
         title: "Home"
       }
     ]
