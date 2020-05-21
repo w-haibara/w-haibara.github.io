@@ -1,6 +1,6 @@
 <template>
   <v-app id>
-    <v-content class="background">
+    <v-content v-if="isRootPath()" class="background">
       <v-col>
         <v-row justify="center">
           <h1 class="pagetitle font-weight-bold">404 Not Found</h1>
@@ -57,10 +57,13 @@ export default {
       if (selector != "0") {
         goTo(selector, 0);
       }
+    },
+    isRootPath() {
+      return this.$route.path === "/";
     }
   },
   created() {
-    if (this.$route.path === "/") {
+    if (this.isRootPath()) {
       this.$router.push("/home");
     }
   }
