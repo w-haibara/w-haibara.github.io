@@ -24,7 +24,12 @@
               </div>
             </v-card-title>
             <v-card-subtitle>{{ item.keyword }}</v-card-subtitle>
-            <v-card-text>{{ item.msg }}</v-card-text>
+            <v-card-text>
+              {{ item.msg }}
+              <router-link v-if="item.routerLinkTo !== undefined" :to="item.routerLinkTo">
+                <a>{{ item.routerLinkMsg }}</a>
+              </router-link>
+            </v-card-text>
           </v-card>
         </div>
       </div>
@@ -37,6 +42,24 @@ export default {
   data: () => ({
     drawer: null,
     items: [
+      {
+        src: require("../assets/vtd4.png"),
+        title: "vtd4",
+        keyword: "TD4 / CPU Emulator / Vue.js",
+        msg:
+          "4ビットCPU TD4のエミュレータです。Vue.js・Vuetifyで作成しました。",
+        link: "https://github.com/w-haibara/vtd4",
+        routerLinkTo: "/td4",
+        routerLinkMsg: "こちらで試すことができます。"
+      },
+      {
+        src: require("../assets/portfolio.png"),
+        title: "portfolio",
+        keyword: "Vue.js / Vue Router / Github Actions",
+        msg:
+          "このポートフォリオです。Vue.jsでSPAを構築しています。また、Github Actionsを用いて、ビルドとデプロイを自動化しています。",
+        link: "https://github.com/w-haibara/w-haibara.github.io"
+      },
       {
         src: require("../assets/caes.jpg"),
         title: "caes",
