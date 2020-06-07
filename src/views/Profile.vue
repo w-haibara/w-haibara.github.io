@@ -30,7 +30,7 @@
                   </v-card>
                 </v-dialog>
                 <span>
-                  <span>室蘭工業大学 B3/span>
+                  <span>室蘭工業大学 B3</span>
                   <br />
                   <span>一般社団法人LOCAL (学生部)</span>
                 </span>
