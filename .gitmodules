@@ -1,0 +1,3 @@
+[submodule "src/views/playground/potsuri"]
+	path = src/views/playground/potsuri
+	url = https://github.com/w-haibara/potsuri
