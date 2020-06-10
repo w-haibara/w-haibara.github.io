@@ -5,6 +5,7 @@ import Profile from '@/views/Profile.vue'
 import Works from '@/views/Works.vue'
 import Slides from '@/views/Slides.vue'
 import SlideView from '@/views/SlideView.vue'
+import Potsuri from '@/views/playground/potsuri/src/components/Potsuri.vue'
 import Ball from '@/views/playground/Ball.vue'
 import Picsel from '@/views/playground/Picsel.vue'
 import TD4 from '@/views/playground/TD4.vue'
@@ -70,6 +71,11 @@ export default new VueRouter({
       path: '/slides/:src',
       name: 'SlideView',
       component: SlideView
+    },
+    {
+      path: '/potsuri',
+      name: 'Potsuri',
+      component: Potsuri
     },
     {
       path: '/picsel',
