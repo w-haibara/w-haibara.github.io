@@ -23,6 +23,9 @@ jobs:
     - name: Resize assets,
       run: |
         bash ./src/views/seminar/posts/assets/resize.sh
+    - name: GitHub submodule update --remote
+      run: |
+        git submodule update --remote potsuri
     - name: GitHub Commit
       run: |
         git config --local user.name "w-haibara"
