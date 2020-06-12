@@ -43,7 +43,6 @@ class slide {
 export default {
   data: () => ({
     ids: [
-      "2PACX-1vTX9uUR4lQDktc0mTuTcHZj6flarl-7N4JDsvm1pYLMDoQFiKeKc5fcQK5VbvKtzQM7y0s-wKmxGPwi",
       "2PACX-1vSkb3gsaoyCpDjz-D_O3tluDR-8HJuO80nzwe0GX4KPLEacfKVaEZ3Cq2-brWmS16Bn6_JbzbP9hNM6",
       "2PACX-1vT1XIpafcbjijZVInZA6T3LF9BmMA-pM8ijH1Uiy6WRLMmyC2XUyhB_vqdpROYv3TKdhHo8haK_FtEX",
       "2PACX-1vQ0gX4zJRVfeKHzrhJaidJseJrk-xyQFGxIObCMr1Xs5laxahBzdV3SNhHqnrSr9aVAbmLsSygtnKyV",
