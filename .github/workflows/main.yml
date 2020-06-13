@@ -25,7 +25,8 @@ jobs:
         bash ./src/views/seminar/posts/assets/resize.sh
     - name: GitHub submodule update --remote
       run: |
-        git submodule update --remote
+        git submodule update --remote ./src/views/playground/potsuri
+        git submodule update --remote ./src/views/playground/vuewat
     - name: GitHub Commit
       run: |
         git config --local user.name "w-haibara"
