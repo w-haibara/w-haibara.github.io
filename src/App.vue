@@ -99,7 +99,7 @@ export default {
         title: "Picsel",
         src: "/picsel"
       },
-*/
+      */
       {
         title: "TD4 Emulator",
         src: "/td4"
@@ -107,6 +107,10 @@ export default {
       {
         title: "Video Filter",
         src: "/video"
+      },
+      {
+        title: "Potsuri",
+        src: "/potsuri"
       }
     ],
     dialog1: false,
