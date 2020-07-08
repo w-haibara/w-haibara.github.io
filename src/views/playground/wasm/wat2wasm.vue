@@ -7,8 +7,9 @@
 <script>
 import WatToWasm from "./components/WatToWasm";
 export default {
-  name: "App",
+  name: "WatToWasm",
   components: {
     WatToWasm
   }
 }
+</script>
