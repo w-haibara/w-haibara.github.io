@@ -8516,12 +8516,19 @@ vue-the-mask@^0.11.1:
   resolved "https://registry.yarnpkg.com/vue-the-mask/-/vue-the-mask-0.11.1.tgz#91ee01008354ae57bccc79bb61b65f32d971d9d5"
   integrity sha512-UquSfnSWejD0zAfcD+3jJ1chUAkOAyoxya9Lxh9acCRtrlmGcAIvd0cQYraWqKenbuZJUdum+S174atv2AuEHQ==
 
+vue-tree-chart@^1.2.6:
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/vue-tree-chart/-/vue-tree-chart-1.2.6.tgz#d30b82fd019f6380727538baac9d426207f3a114"
+  integrity sha512-irRi+Q3kUcMB1V7+uzPJ8EcucvjMfa1CzWoAbr0LVfoZ5a+vyu13LGq5ypiwvSOicbRiTCDEHTRxDuCC5bKWWg==
+  dependencies:
+    vue "^2.6.10"
+
 vue2-github-corners@^0.1.12:
   version "0.1.12"
   resolved "https://registry.yarnpkg.com/vue2-github-corners/-/vue2-github-corners-0.1.12.tgz#7a1f620e1d2b5c7e24728f307db1fcf5a08fea41"
   integrity sha512-Uj48TBi0Apy6bvvPx0f8ir60u/icXWaOc57Hb/0wKLvEbTTLhprBP/R8V9u0lDJosopmiPS87O/ZjsPmX1sGQg==
 
-vue@^2.5.16, vue@^2.6.11:
+vue@^2.5.16, vue@^2.6.10, vue@^2.6.11:
   version "2.6.11"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.11.tgz#76594d877d4b12234406e84e35275c6d514125c5"
   integrity sha512-VfPwgcGABbGAue9+sfrD4PuwFar7gPb1yl1UK1MwXoQPAw0BKSqWfoYCT/ThFrdEVWoI51dBuyCoiNU9bZDZxQ==

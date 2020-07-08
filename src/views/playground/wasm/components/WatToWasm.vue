@@ -124,7 +124,7 @@ class MultiWayTreeNode {
 }
 
 export default {
-  nam: "WatToWasm",
+  name: "vuewat",
   components: {
     TreeView
   },
