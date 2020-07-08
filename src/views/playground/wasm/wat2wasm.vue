@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import WatToWasm from "../vuewat/src/components/WatToWasm.vue";
+import WatToWasm from "./vuewat/src/components/WatToWasm";
 export default {
   name: "App",
   components: {
