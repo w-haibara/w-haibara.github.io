@@ -42,7 +42,6 @@ jobs:
     - name: yarn install, build,
       run: |
         yarn install
-        yarn add vue-tree-chart
         yarn build
     - name: Put Files,
       run: |
