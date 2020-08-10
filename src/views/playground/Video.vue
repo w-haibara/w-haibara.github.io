@@ -180,7 +180,7 @@ export default {
       }
 
       function aveFil(data) {
-        convolution3x3(data, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3);
+        convolution3x3(data, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9);
       }
 
       /*
