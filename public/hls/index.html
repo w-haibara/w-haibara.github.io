@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <title>VHS de HLS</title>
+    <link href="https://vjs.zencdn.net/7.4.1/video-js.css" rel="stylesheet">
+  </head>
+  <body>
+    <video-js id=example-video width=100% height=100% class="vjs-default-skin" controls>
+      <source src="https://example.com/streaming/hls.m3u8" type="application/x-mpegURL">
+    </video-js>
+    <script src="https://vjs.zencdn.net/7.4.1/video.js"></script>
+    <script>
+      var player = videojs('example-video');
+    </script>
+  </body>
+</html>
