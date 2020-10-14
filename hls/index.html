@@ -4,31 +4,22 @@
     <title>HLS</title>
     <link href="https://vjs.zencdn.net/7.4.1/video-js.css" rel="stylesheet">
   </head>
-  <body>
-    <video-js id=example-video width=1280 height=720 class="vjs-default-skin" controls>
-      <source src="" type="application/x-mpegURL">
-    </video-js>
-    <form id="form">
-      <label for="url-input">URL:</label>
-      <input id="url-input" name="url" value="">
-      <input type="submit" value="send">
-    </form>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://vjs.zencdn.net/7.4.1/video.js"></script>
-    <script>
-      var player = videojs('example-video');
-      window.addEventListener("load", function () {
-        function setURL() {
-          const url = new FormData(form);
-          console.log(url)
-        }
-        
-        const form = document.getElementById("url-input");
-        form.addEventListener("submit", function (event) {
-          event.preventDefault();
-          setURL();
-        });
-      });
-    </script>
-  </body>
+<body>
+  <video-js id=example-video width=1280 height=720 class="vjs-default-skin" controls>
+    <source src="" type="application/x-mpegURL">
+  </video-js>
+  <script src="https://vjs.zencdn.net/7.4.1/video.js"></script>
+
+  <form id="form1" action="#">
+    <input type="text" id="url_input" value="">
+    <input type="button" onclick="setUrl" value="ok">
+  </form>
+  <script>
+    function setUrl() {
+      var url = document.getElementById("url_input").value;
+      console.log(url, text(url));
+      document.getElementById('video').setAttribute('src', url);
+    }
+  </script>
+</body>
 </html>
