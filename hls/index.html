@@ -6,7 +6,7 @@
   </head>
 <body>
   <video-js id="hls-video" width="1280" height="720" class="vjs-default-skin" controls>
-    <source id="hls-video-source" src="" type="application/x-mpegURL">
+    <source id="hls-video-source" src="https://www.uniqueradio.jp/agplayerf/hls/mbr.m3u8" type="application/x-mpegURL">
   </video-js>
   <script src="https://vjs.zencdn.net/7.4.1/video.js"></script>
 
@@ -17,7 +17,6 @@
   <script>
     function setUrl() {
       var url = document.getElementById("url-input").value;
-      console.log(url, text(url));
       document.getElementById('hls-video-source').setAttribute('src', url);
     }
   </script>
